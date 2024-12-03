@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewp2ort" content="width=device-width, initial-scale=1.0">
+  <title>Sliding Forms: Login, Signup, Registration, and Forgot Password</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./web-assets/assets/css/kit.css">
+  <link rel="stylesheet" href="./web-assets/assets/css/style.css">
+  <style>
+    /* model */
+    /* Modal Overlay */
+    .modal-overlay-address {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1 !important;
+    }
+
+    .modal-overlay-address.active {
+      display: flex;
+    }
+
+    /* Modal Container */
+    .modal-address {
+      background: white;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Modal Header */
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      background-color: #f1f1f1;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .modal-header h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .modal-header .close-modal {
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    /* Modal Body */
+    .modal-address .modal-body {
+      padding: 20px;
+      height: 400px;
+      overflow-y: scroll;
+    }
+
+    /* Modal Footer */
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      padding: 15px;
+      background-color: #f1f1f1;
+      border-top: 1px solid #ddd;
+    }
+
+    .modal-footer button {
+      margin-left: 10px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .modal-footer .close-btn {
+      background-color: #ddd;
+      color: #333;
+    }
+
+    .modal-footer .send-btn {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    .btn-close-modal {
+      border: none;
+      outline: none;
+      font-size: 25px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 640px) {
+      .modal-overlay-address .modal-address {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .modal-overlay-address .modal-address .modal-body {
+        height: 80%;
+      }
+
+      .modal-overlay-address .modal-address .modal-footer {
+        position: absolute;
+        bottom: 0px;
+        background: white;
+        border: none;
+        z-index: 99;
+        width: 100%;
+        right: 0px;
+      }
+    }
+
+    /* Loader styles */
+    .loader {
+      display: none;
+      /* Initially hidden */
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .load-more {
+      border: none;
+      color: white;
+      font-size: 15px;
+      font-weight: 500;
+      border-radius: 10px;
+      height: 50px;
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      margin: 40px 0px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #424f77;
+
+      &:hover {
+        background-color: #10182f;
+      }
+    }
+
+    .review {
+      display: none;
+      /* Hide all reviews initially */
+    }
+
+    .review.visible {
+      display: block;
+      /* Show only reviews that have the 'visible' class */
+    }
+
+    #loadMoreReview {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #loadMoreReview:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- header -->
+  <div id="header"></div>
+  <!-- /header -->
+  <!-- preloader -->
+  <div id="preloader"></div>
+  <!-- /preloader -->
+  <!-- content -->
+  <div class="modal-overlay-address" id="modal-1">
+    <div class="modal-address">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h3>Report Product</h3>
+        <button class="close-modal">&times;</button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <div class="form-field">
+          <label class="field-label">Full Name :</label>
+          <div class="field">
+            <input type="text" class="field-text" placeholder="Full Name" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="field-label">Email :</label>
+          <div class="field">
+            <input type="email" class="field-text" placeholder="Please enter your e-mail" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="field-label">Reason :</label>
+          <div class="field">
+            <textarea type="date" class="field-text" rows="7" cols="50"></textarea>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button class="close-btn close-modal">Close</button>
+        <button class="send-btn">Send</button>
+      </div>
+    </div>
+  </div>
+  <div class="content-area">
+    <div class="breadcrumbs-container">
+      <h4>Product Detail</h4>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="" class="breadcrumb-link">Home</a></li>
+        <li class="breadcrumb-item"><a href="" class="breadcrumb-link">Products</a></li>
+        <li class="breadcrumb-item"><a href="" class="breadcrumb-link">Product-details</a></li>
+        <li class="breadcrumb-item active">T-shirts</li>
+      </ol>
+    </div>
+
+    <div class="container product-detail-cards">
+      <div class="product-detail">
+        <div class="product-img-and-info">
+          <div class="products-image">
+            <img src="./web-assets/assets/images/t-shirt_product.jpg" class="main-img" id="mainImage"
+              alt="Main Product Image">
+            <div class="products-other-img">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="sm-img" alt="Thumbnail 1"
+                onclick="changeImage(this)">
+              <img src="./web-assets/assets/images/t-shirt-2.jpg" class="sm-img" alt="Thumbnail 2"
+                onclick="changeImage(this)">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="sm-img" alt="Thumbnail 3"
+                onclick="changeImage(this)">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="sm-img" alt="Thumbnail 4"
+                onclick="changeImage(this)">
+            </div>
+            <div class="card product-owner">
+              <div class="card-head">
+                <div class="store-name">
+                  <i class='bx bx-store-alt'></i>
+                  <h6>Creative T-shirts</h6>
+                  <i class='bx bxs-badge-check'></i>
+                </div>
+                <div class="rating-reviews">
+                  <i class="bx bxs-star"></i>
+                  <strong>(4.8)</strong>
+                  <strong>17.5k reviews</strong>
+                </div>
+              </div>
+              <hr>
+              <div class="card-body">
+                <div class="location">
+                  <i class="bx bxs-map"></i>
+                  New york, USA
+                </div>
+                <div class="buttons">
+                  <a href=""><button class="btn btn-chat-us">Chat with Seller</button></a>
+                  <a href=""><button class="btn btn-visit-store">VISIT STORE</button></a>
+                </div>
+              </div>
+            </div>
+            <div class="product-description">
+              <h6>DESCRIPTION</h6>
+              <!-- <p class="text-ellipsis text-ellipsis-2">orem ipsum, dolor sit amet consectetur adipisicing elit. Inventore expedita, molestiae explicabo laboriosam eligendi odio voluptatem unde atque dolore tempora incidunt neque ratione nobis culpa consequuntur iusto laborum at enim!</p> -->
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore expedita, molestiae explicabo
+                laboriosam eligendi odio voluptatem unde atque dolore tempora incidunt neque ratione nobis culpa
+                consequuntur iusto laborum at enim!
+                <span class="dots">...</span>
+                <span class="more-text">Lorem ipsum additional content that will be revealed after clicking "Read More".
+                  This portion includes more detailed information about the product and its features.</span>
+              </p>
+              <button class="show-more-btn">Read More</button>
+
+            </div>
+            <hr>
+            <div class="product-details">
+              <h6>DETAILS</h6>
+              <ul>
+                <li><i class="bx bxs-map"></i>Send from <strong>New York, USA</strong></li>
+                <li><i class='bx bxs-truck'></i>Estimated Shipping <strong>Rs 3.99</strong></li>
+                <li><i class='bx bxs-check-shield'></i><strong>100 %</strong>Original Product</li>
+              </ul>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="share-badge">
+              <div class="badge badge-pill">New Arrivals</div>
+              <i class='bx bx-share-alt bx-flip-vertical'></i>
+            </div>
+            <h2 class="product-title">Stylish Comfort: Oversized Fit Printed T-Shirt for Men</h2>
+            <div class="rating-reviews-sold">
+              <div class="rating">
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+                <strong>(5)</strong>
+              </div>
+              <div class="reviews">623 reviews</div>
+              <div style="height: 15px;border: 1px solid grey;"></div>
+              <div class="sold">1,919 Sold</div>
+            </div>
+            <div class="product-price">
+              <h2 class="original-price">Rs 890,00</h2>
+              <div class="discounted-price"><del>Rs 1290.00</del>-77%</div>
+            </div>
+            <div class="select-colors">
+              <h6>SELECTED COLOR</h6>
+              <div class="color-picker">
+                <div class="color-circle active" data-color="red"></div>
+                <div class="color-circle" data-color="orange"></div>
+                <div class="color-circle" data-color="brown"></div>
+                <div class="color-circle" data-color="purple"></div>
+              </div>
+            </div>
+            <div class="select-size">
+              <h6>SELECTED SIZE</h6>
+              <div class="button-container">
+                <button class="btn btn-color btn-sm active">XS</button>
+                <button class="btn btn-color btn-sm">S</button>
+                <button class="btn btn-color btn-sm">M</button>
+                <button class="btn btn-color btn-sm">L</button>
+                <button class="btn btn-color btn-sm">XL</button>
+                <button class="btn btn-color btn-sm">XXL</button>
+              </div>
+            </div>
+            <div class="select-color-family">
+              <h6>SELECTED COLOR FAMILY</h6>
+              <div class="color-images">
+                <img src="./web-assets/assets/images/t-shirt_product.jpg" class="color-product active" alt="">
+                <img src="./web-assets/assets/images/t-shirt_product.jpg" class="color-product" alt="">
+                <img src="./web-assets/assets/images/t-shirt_product.jpg" class="color-product" alt="">
+                <img src="./web-assets/assets/images/t-shirt_product.jpg" class="color-product" alt="">
+                <img src="./web-assets/assets/images/t-shirt_product.jpg" class="color-product" alt="">
+              </div>
+            </div>
+            <div class="quantity-counter">
+              <h6>SELECT QUANTITY</h6>
+              <div class="counter">
+                <button id="decrement"><i class="bx bx-minus"></i></button>
+                <input type="text" id="quantity" value="1" readonly>
+                <button id="increment"><i class="bx bx-plus"></i></button>
+              </div>
+            </div>
+            <button class="btn btn-block btn-icon btn-wishlist"><i class="bx bx-heart icon-pre"></i> Save to Wishlist
+            </button>
+            <button class="btn btn-block btn-icon btn-cart"><i class="bx bx-cart icon-pre"></i> Add to Cart </button>
+            <button class="btn btn-block btn-icon btn-danger modal-trigger" data-target="modal-1"
+              style="cursor: pointer;"><i class="bx bx-notepad icon-pre"></i> Report Product </button>
+          </div>
+          <div class="order-detail">
+            <div class="heading-info">
+              Delivery Options
+              <i class='bx bx-info-circle'></i>
+            </div>
+            <div class="desc-info">
+              <i class='bx bx-map'></i>
+              <div class="text">
+                Sindh, Karachi - Karachi G Block-G Block 15
+              </div>
+              <button class="btn btn-change-address btn-sm"><a href="./web-checkout.html">CHANGE</a></button>
+            </div>
+            <hr>
+            <div class="desc-info">
+              <i class='bx bxs-truck'></i>
+              <div class="text">
+                Standard Delivery<br><span>Guaranteed by 6-11 Oct</span>
+              </div>
+              <div class="delivery-price">Rs 3.99</div>
+            </div>
+            <div class="desc-info">
+              <i class='bx bx-money-withdraw'></i>
+              <div class="text">
+                Cash on Deleivery Available
+              </div>
+            </div>
+            <hr>
+            <div class="heading-info">
+              Return & Warranty
+              <i class='bx bx-info-circle'></i>
+            </div>
+            <div class="desc-info">
+              <i class='bx bx-redo bx-flip-horizontal'></i>
+              <div class="text">
+                14 days easy return
+              </div>
+            </div>
+            <div class="desc-info">
+              <i class='bx bx-shield-x'></i>
+              <div class="text">
+                Warranty not available
+              </div>
+            </div>
+            <hr>
+            <div class="heading-info">
+              <h6>Positive Seller Ratings</h6>
+              <strong>86%</strong>
+            </div>
+            <div class="heading-info">
+              <h6>Ship on Time</h6>
+              <strong>100%</strong>
+            </div>
+            <div class="heading-info">
+              <h6>Chat Response Rate</h6>
+              <strong>97%</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container customer-reviews">
+      <div class="heading-rating">
+        <h4>Customer Reviews (306)</h4>
+        <div class="rating">
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bx-star"></i>
+          <strong>3.9</strong>
+        </div>
+      </div>
+      <div class="container tabs-container">
+        <div class="tabs-filters">
+          <div class="tabs">
+            <div class="tab active" onclick="openTab('reviews')">All Reviews (43)</div>
+            <div class="tab" onclick="openTab('images')">Images (10)</div>
+          </div>
+
+          <div class="filters">
+            <div class="filter">
+              <label for="rating">Rating</label>
+              <select id="rating">
+                <option>All</option>
+                <option>5 stars</option>
+                <option>4 stars</option>
+                <option>3 stars</option>
+                <option>2 stars</option>
+                <option>1 star</option>
+              </select>
+            </div>
+            <div class="filter">
+              <label for="sort">Sort by</label>
+              <select id="sort">
+                <option>Recommend</option>
+                <option>Newest</option>
+                <option>Oldest</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reviews Tab Content -->
+        <div id="reviews" class="content active">
+          <div class="review">
+            <h5 class="name">Hassan <i class="bx bxs-badge-check"></i></h5>
+            <div class="rating">★★★★★</div>
+            <div class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi illo eveniet eaque
+              consequatur provident praesentium ullam ratione, odit incidunt. Earum, architecto praesentium consequatur
+              odio voluptas cupiditate consequuntur incidunt veritatis ratione.
+              Porro officia nulla, odio sed ut nihil. Inventore quas praesentium harum. Rerum ipsam eum dolor quisquam,
+              officiis ea non, quod illo quibusdam quis harum fugiat sapiente sed sit iure possimus!</div>
+
+            <div class="review-images">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" alt="Product 1"
+                onclick="enlargeImage(this, 'enlargedImageContainer1')">
+              <img src="./web-assets/assets/images/home-banner-1.webp" alt="Product 2"
+                onclick="enlargeImage(this, 'enlargedImageContainer1')">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" alt="Product 3"
+                onclick="enlargeImage(this, 'enlargedImageContainer1')">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" alt="Product 4"
+                onclick="enlargeImage(this, 'enlargedImageContainer1')">
+            </div>
+
+            <!-- Enlarged Image Section -->
+            <div class="enlarged-image" id="enlargedImageContainer1">
+              <!-- Initially, no image will be displayed -->
+            </div>
+            <div class="details">Color: Mocha Brown</div>
+            <div class="info">13 Jul, 2022</div>
+          </div>
+          <div class="review">
+            <h5 class="name">Hassan <i class="bx bxs-badge-check"></i></h5>
+            <div class="rating">★★★★★</div>
+            <div class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi illo eveniet eaque
+              consequatur provident praesentium ullam ratione, odit incidunt. Earum, architecto praesentium consequatur
+              odio voluptas cupiditate consequuntur incidunt veritatis ratione.
+              Porro officia nulla, odio sed ut nihil. Inventore quas praesentium harum. Rerum ipsam eum dolor quisquam,
+              officiis ea non, quod illo quibusdam quis harum fugiat sapiente sed sit iure possimus!</div>
+
+            <div class="review-images">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" alt="Product 1"
+                onclick="enlargeImage(this, 'enlargedImageContainer2')">
+              <img src="./web-assets/assets/images/home-banner-1.webp" alt="Product 2"
+                onclick="enlargeImage(this, 'enlargedImageContainer2')">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" alt="Product 3"
+                onclick="enlargeImage(this, 'enlargedImageContainer2')">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" alt="Product 4"
+                onclick="enlargeImage(this, 'enlargedImageContainer2')">
+            </div>
+
+            <!-- Enlarged Image Section -->
+            <div class="enlarged-image" id="enlargedImageContainer2">
+              <!-- Initially, no image will be displayed -->
+            </div>
+            <div class="details">Color: Mocha Brown</div>
+            <div class="info">13 Jul, 2022</div>
+          </div>
+          <div class="review">
+            <h5 class="name">Hassan <i class="bx bxs-badge-check"></i></h5>
+            <div class="rating">★★★★★</div>
+            <div class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi illo eveniet eaque
+              consequatur provident praesentium ullam ratione, odit incidunt. Earum, architecto praesentium consequatur
+              odio voluptas cupiditate consequuntur incidunt veritatis ratione.
+              Porro officia nulla, odio sed ut nihil. Inventore quas praesentium harum. Rerum ipsam eum dolor quisquam,
+              officiis ea non, quod illo quibusdam quis harum fugiat sapiente sed sit iure possimus!</div>
+
+            <div class="review-images">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" alt="Product 1"
+                onclick="enlargeImage(this, 'enlargedImageContainer1')">
+              <img src="./web-assets/assets/images/home-banner-1.webp" alt="Product 2"
+                onclick="enlargeImage(this, 'enlargedImageContainer1')">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" alt="Product 3"
+                onclick="enlargeImage(this, 'enlargedImageContainer1')">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" alt="Product 4"
+                onclick="enlargeImage(this, 'enlargedImageContainer1')">
+            </div>
+
+            <!-- Enlarged Image Section -->
+            <div class="enlarged-image" id="enlargedImageContainer1">
+              <!-- Initially, no image will be displayed -->
+            </div>
+            <div class="details">Color: Mocha Brown</div>
+            <div class="info">13 Jul, 2022</div>
+          </div>
+          <div class="review">
+            <h5 class="name">Hassan <i class="bx bxs-badge-check"></i></h5>
+            <div class="rating">★★★★★</div>
+            <div class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi illo eveniet eaque
+              consequatur provident praesentium ullam ratione, odit incidunt. Earum, architecto praesentium consequatur
+              odio voluptas cupiditate consequuntur incidunt veritatis ratione.
+              Porro officia nulla, odio sed ut nihil. Inventore quas praesentium harum. Rerum ipsam eum dolor quisquam,
+              officiis ea non, quod illo quibusdam quis harum fugiat sapiente sed sit iure possimus!</div>
+
+            <div class="review-images">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" alt="Product 1"
+                onclick="enlargeImage(this, 'enlargedImageContainer2')">
+              <img src="./web-assets/assets/images/home-banner-1.webp" alt="Product 2"
+                onclick="enlargeImage(this, 'enlargedImageContainer2')">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" alt="Product 3"
+                onclick="enlargeImage(this, 'enlargedImageContainer2')">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" alt="Product 4"
+                onclick="enlargeImage(this, 'enlargedImageContainer2')">
+            </div>
+
+            <!-- Enlarged Image Section -->
+            <div class="enlarged-image" id="enlargedImageContainer2">
+              <!-- Initially, no image will be displayed -->
+            </div>
+            <div class="details">Color: Mocha Brown</div>
+            <div class="info">13 Jul, 2022</div>
+          </div>
+          <!-- Loader -->
+          <div class="loader" id="loaderReview">
+            <span class="fallback fallback-spin fallback-spin-primary fallback-spin-lg"></span>
+          </div>
+          <div class="text-center">
+            <button class="btn btn-primary" id="loadMoreReview" onclick="loadMoreReviews()">Load More</button>
+          </div>
+        </div>
+
+        <!-- Images Tab Content -->
+        <div id="images" class="content">
+          <p>Here are some images related to the product.</p>
+        </div>
+      </div>
+    </div>
+    <div class="container flash-sale">
+      <div class="headings d-flex">
+        <h3>Similar Products</h3>
+      </div>
+      <hr>
+      <div class="swiper mySwiper likely-products">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- Add more swiper slides as needed -->
+        </div>
+        <!-- Navigation Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </div>
+  <div id="msg-btn-chat"></div>
+  <!-- /content -->
+  <!-- footer -->
+  <div id="footer"></div>
+  <!-- /footer -->
+
+  <!-- THIRD PARTY JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="./web-assets/assets/js/swiper.js"></script>
+  <script src="./web-assets/assets/js/load-more.js"></script>
+  <script src="./web-assets/assets/js/preloader.js"></script>
+  <script src="./web-assets/assets/js/dropdowns.js"></script>
+  <script src="./web-assets/assets/js/language.js"></script>
+
+  <!-- scripts -->
+  <script>
+    document.getElementById("msg-btn-chat").innerHTML = fetch('./web-msg-btn.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("msg-btn-chat").innerHTML = data;
+      });
+    // Load the header dynamically
+    document.getElementById("header").innerHTML = fetch('./web-header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+
+    document.getElementById("footer").innerHTML = fetch('./web-footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+    document.getElementById("preloader").innerHTML = fetch('./web-preloader.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("preloader").innerHTML = data;
+      });
+  </script>
+  <script>
+    var swiper = new Swiper(".related-products", {
+      slidesPerView: 4,          // Show 4 slides at a time
+      spaceBetween: 10,          // Space between slides
+      loop: true,                // Enable loop for infinite sliding
+      autoplay: {
+        delay: 2500,           // Auto slide after 2.5 seconds
+        disableOnInteraction: false, // Continue autoplay after manual interaction
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+  <!-- show more -->
+  <script>
+    const showMoreBtn = document.querySelector('.show-more-btn');
+    const moreText = document.querySelector('.more-text');
+    const dots = document.querySelector('.dots');
+    const ellipsisText = document.querySelector('.text-ellipsis');
+
+    showMoreBtn.addEventListener('click', function () {
+      if (moreText.style.display === "none") {
+        moreText.style.display = "inline";
+        dots.style.display = "none";
+        ellipsisText.classList.remove('text-ellipsis-2'); /* Remove ellipsis for full text */
+        showMoreBtn.textContent = "Read Less";
+      } else {
+        moreText.style.display = "none";
+        dots.style.display = "inline";
+        ellipsisText.classList.add('text-ellipsis-2'); /* Restore ellipsis */
+        showMoreBtn.textContent = "Read More";
+      }
+    });
+  </script>
+  <!-- select color -->
+  <script>
+    const circles = document.querySelectorAll('.color-circle');
+
+    circles.forEach(circle => {
+      // Set the background color based on data-color attribute
+      const color = circle.getAttribute('data-color');
+      circle.style.backgroundColor = color;
+
+      // Add click event listener
+      circle.addEventListener('click', function () {
+        // Remove 'active' class from all circles
+        circles.forEach(c => c.classList.remove('active'));
+
+        // Add 'active' class to clicked circle
+        this.classList.add('active');
+      });
+    });
+  </script>
+  <!-- quantity counter -->
+  <script>
+    const decrementButton = document.getElementById('decrement');
+    const incrementButton = document.getElementById('increment');
+    const quantityInput = document.getElementById('quantity');
+
+    // Increment the value by 1 on button click
+    incrementButton.addEventListener('click', () => {
+      let value = parseInt(quantityInput.value);
+      quantityInput.value = value + 1;
+    });
+
+    // Decrement the value by 1 on button click, but prevent going below 1
+    decrementButton.addEventListener('click', () => {
+      let value = parseInt(quantityInput.value);
+      if (value > 1) {
+        quantityInput.value = value - 1;
+      }
+    });
+  </script>
+  <!-- size selection -->
+  <script>
+    // Select all the buttons inside the button container
+    const buttons = document.querySelectorAll('.button-container .btn');
+
+    // Add click event listener to each button
+    buttons.forEach(button => {
+      button.addEventListener('click', function () {
+        // Remove the 'active' class from all buttons
+        buttons.forEach(btn => btn.classList.remove('active'));
+
+        // Add the 'active' class to the clicked button
+        this.classList.add('active');
+      });
+    });
+  </script>
+  <!-- color-family images selection -->
+  <script>
+    // Select all the buttons inside the button container
+    const colorFamily = document.querySelectorAll('.color-images .color-product');
+    // Add click event listener to each button
+    colorFamily.forEach(button => {
+      button.addEventListener('click', function () {
+        // Remove the 'active' class from all 
+        colorFamily.forEach(btn => btn.classList.remove('active'));
+        // Add the 'active' class to the clicked button
+        this.classList.add('active');
+      });
+    });
+  </script>
+  <!-- reviews tabs -->
+  <script>
+    function openTab(tabName) {
+      // Hide all content
+      var contents = document.querySelectorAll('.content');
+      contents.forEach(content => content.classList.remove('active'));
+
+      // Remove active class from all tabs
+      var tabs = document.querySelectorAll('.tab');
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      // Show the selected content and add active class to the tab
+      document.getElementById(tabName).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+  <!-- click image on review -->
+  <script>
+    let currentActiveImages = {}; // Store the currently active thumbnail for each review
+    let enlargedImageElements = {}; // Store the currently enlarged image element for each review
+
+    function enlargeImage(imgElement, containerId) {
+      const imgSrc = imgElement.src;
+      const enlargedImageContainer = document.getElementById(containerId);
+
+      // Check if the clicked image is already enlarged
+      if (enlargedImageElements[containerId] && enlargedImageElements[containerId].src === imgSrc) {
+        // If the same image is clicked, clear it
+        enlargedImageContainer.innerHTML = ""; // Clear the enlarged image
+        imgElement.classList.remove("active"); // Remove active class
+        enlargedImageElements[containerId] = null; // Reset the enlarged image for this review
+        currentActiveImages[containerId] = null; // Reset the current active image for this review
+        return; // Exit the function
+      }
+
+      // Create a new image element
+      enlargedImageElements[containerId] = document.createElement("img");
+      enlargedImageElements[containerId].src = imgSrc;
+
+      // Clear the enlarged image container and add the new enlarged image
+      enlargedImageContainer.innerHTML = "";
+      enlargedImageContainer.appendChild(enlargedImageElements[containerId]);
+
+      // Remove active class from the previously active thumbnail, if any
+      if (currentActiveImages[containerId]) {
+        currentActiveImages[containerId].classList.remove("active");
+      }
+
+      // Add active class to the clicked thumbnail
+      imgElement.classList.add("active");
+      currentActiveImages[containerId] = imgElement; // Update the current active image
+
+      // Toggle visibility of enlarged image on click
+      enlargedImageElements[containerId].onclick = function () {
+        enlargedImageContainer.innerHTML = ""; // Clear the enlarged image
+        imgElement.classList.remove("active"); // Remove active class
+        enlargedImageElements[containerId] = null; // Reset the enlarged image for this review
+        currentActiveImages[containerId] = null; // Reset the current active image for this review
+      };
+    }
+  </script>
+  <!-- product image chnager from sm images -->
+  <script>
+    function changeImage(thumbnail) {
+      const mainImage = document.getElementById('mainImage');
+      mainImage.src = thumbnail.src; // Change the source of the main image to the thumbnail clicked
+    }
+  </script>
+  <!-- load more reviews -->
+  <script>
+    let reviewsPerPage = 2; // Number of reviews to show per "Load More" click
+
+    // Show initial reviews (first 2)
+    function initializeReviews() {
+      const reviews = document.querySelectorAll('.review');
+      reviews.forEach((review, index) => {
+        if (index < reviewsPerPage) {
+          review.classList.add('visible');
+        }
+      });
+
+      // Hide the "Load More" button if all reviews are already visible
+      if (reviews.length <= reviewsPerPage) {
+        document.getElementById('loadMoreReview').style.display = 'none';
+      }
+    }
+
+    // Show the loader for 2 seconds, then display the next set of reviews
+    function loadMoreReviews() {
+      const loader = document.getElementById('loaderReview');
+      const reviews = document.querySelectorAll('.review');
+      const currentlyVisible = document.querySelectorAll('.review.visible').length;
+
+      // Show the loader
+      loader.style.display = 'block';
+
+      // After 2 seconds, hide the loader and show the next set of reviews
+      setTimeout(() => {
+        loader.style.display = 'none'; // Hide the loader
+
+        // Show the next set of reviews
+        for (let i = currentlyVisible; i < currentlyVisible + reviewsPerPage; i++) {
+          if (i < reviews.length) {
+            reviews[i].classList.add('visible');
+          }
+        }
+
+        // Hide the "Load More" button if all reviews are shown
+        if (currentlyVisible + reviewsPerPage >= reviews.length) {
+          document.getElementById('loadMoreReview').style.display = 'none';
+        }
+      }, 2000); // 2-second delay for loader
+    }
+
+    // Initialize reviews on page load
+    document.addEventListener('DOMContentLoaded', initializeReviews);
+
+  </script>
+  <!-- report-model -->
+  <script>
+    // Select elements
+    const modalOverlay = document.querySelector('.modal-overlay-address');
+    const openModalBtn = document.querySelector('.modal-trigger');
+    const closeModalBtns = document.querySelectorAll('.close-modal');
+
+    // Open modal when the trigger is clicked
+    openModalBtn.addEventListener('click', () => {
+      const target = openModalBtn.getAttribute('data-target');
+      document.getElementById(target).classList.add('active');
+    });
+
+    // Close modal when any close button is clicked
+    closeModalBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        modalOverlay.classList.remove('active');
+      });
+    });
+
+    // Close modal when clicking outside the modal content
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) {
+        modalOverlay.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+
+</html>

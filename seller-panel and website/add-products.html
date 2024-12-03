@@ -1,0 +1,2020 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-startbar="light" data-bs-theme="light">
+<!-- Mirrored from mannatthemes.com/rizz/default/apps-calendar.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 05 Oct 2024 14:08:57 GMT -->
+
+<head>
+    <meta charset="utf-8" />
+    <title>Rizz | Rizz - Admin & Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <link rel="stylesheet" href="assets/libs/quill/quill.snow.css">
+    <!-- App css -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
+</head>
+<style>
+/* varients add style */
+.variants{
+    .added-variants{
+        border-radius:10px;
+        background-color:#f4f6f9;
+        padding:10px 20px;
+        .variant{
+            display: flex;
+            height:100px;
+            align-items: center;
+            .variant-img-container {
+            position: relative;
+            width: 150px;
+            height: 83px;
+            margin: 10px 0px 10px 35px;
+            
+                    .variant-img {
+                        width: 50%;
+                        height: 80px; /* Adjust card height as needed */
+                        border-radius: 8px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transition: transform 0.3s ease;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                        background-size: cover;
+                        background-position: center;
+                    }
+            
+                    .variant-img:nth-child(1) {
+                        z-index: 3;
+                    }
+            
+                    .variant-img:nth-child(2) {
+                        z-index: 2;
+                        height: 67px;
+                transform: translate(-20px, 6px) rotate(-14deg);
+                    }
+            
+                    .variant-img:nth-child(3) {
+                        height: 67px;
+                        transform: translate(20px, 6px) rotate(14deg);
+                        z-index: 1;
+                    }
+        }
+        }
+    }
+}
+
+     .upload-container {
+        .progress-container {
+      display: none;
+      width: 100%;
+      padding: 0px;
+      background-color: #d4d4d4;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      width: 0;
+      height: 8px;
+      border-radius: 4px;
+      background-color: #20bb59;
+      transition: width 0.4s;
+    }
+    .file-preview {
+        background: transparent;
+        height: 79px;
+        margin-top: -38px;
+        display: none;
+        align-items: center;
+        padding: 10px;
+        border-radius: 8px;
+        position: relative;
+    }
+    .thumbnail {
+      width: 70px;
+      height: 50px;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+    .file-info {
+      margin-left: 10px;
+      font-size: 0.9em;
+      color: #555;
+      flex-grow: 1;
+    }
+    .status {
+      display: inline-block;
+      padding: 4px 8px;
+      background-color: #ff9800;
+      color: white;
+      border-radius: 4px;
+      font-size: 0.8em;
+      margin-top: 4px;
+    }
+    .delete-btn {
+      color: #dc3545;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .delete-btn:hover {
+      color: #ff6f6f;
+    }
+    }
+.tag {
+  display: inline-block;
+  background-color: #20bb59;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  margin: 5px;
+  position: relative;
+}
+
+.close-btn {
+  margin-left: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  padding:0px 4px;
+  font-weight: bold;
+  color: #20bb59;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+.product-video-section{
+    .video-section {
+    font-family: Arial, sans-serif;
+}
+
+.video-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.video-upload-section, .youtube-section, .media-center-section {
+    background-color: #f5f9ff;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.upload-box {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border: 2px dashed #ffa500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.upload-box:hover {
+    border-color: #007bff;
+}
+
+.plus-icon {
+    font-size: 24px;
+    color: #ffa500;
+}
+
+.upload-box:hover .plus-icon {
+    color: #007bff;
+}
+
+.upload-instructions {
+    padding: 0;
+    line-height:2;
+}
+
+.youtube-input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.media-center-link {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.media-center-link:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    font-size: 14px;
+    color: red;
+    margin-top: 10px;
+}
+}
+.product-images-section{
+    .product-images {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.image-container {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background-color: #f9fcff;
+    border-radius: 5px;
+}
+
+.image-box img {
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+}
+
+.add-image-box {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border: 2px dashed #ffa500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.add-image-box:hover {
+    border-color: #ff4500;
+}
+
+.plus-icon {
+    font-size: 24px;
+    color: #ffa500;
+    transition: color 0.3s;
+}
+
+.add-image-box:hover .plus-icon {
+    color: #ff4500;
+}
+
+.dropdown-menu-img {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    min-width: 100px;
+    margin-top: 5px;
+}
+
+.dropdown-menu-img div {
+    padding: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dropdown-menu div:hover {
+    background-color: #f1f1f1;
+}
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+}
+.custom-dropdown{
+    .custom-form-control {
+    cursor: pointer;
+    border: 1px solid #ccc; /* Adding a border to mimic form-control */
+    padding: 10px; /* Adding padding for better appearance */
+}
+
+.custom-dropdown-menu {
+    display: none; /* Initially hidden */
+    position: absolute; /* Positioning dropdown below the input */
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Ensure dropdown is above other elements */
+    /* width: calc(100% - 2px); */
+}
+
+.custom-dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.custom-dropdown-item:hover {
+    background-color: #f1f1f1; /* Highlight on hover */
+}
+
+}
+.hidden {
+            display: none;
+        }
+  /* Anchor styling */
+
+
+    /* Hidden div styling */
+    .hover-content {
+      display: none;
+      position: absolute;
+      top: 170px;
+      left: 34%; /* Right side of the link */
+      margin-left: 10px;
+      width: 400px;
+      padding: 10px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+    .hover-link:hover +  .hover-content{
+            display: block;
+    }
+
+    /* Show div on hover */
+
+    .hover-content img {
+      max-width: 100%;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+    .hover-text{
+        padding: 10px;
+    background-color: #ececec;
+    border-radius: 10px;
+    }
+</style>
+<body>
+
+    <div class="modal fade" id="variants" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title m-0" id="exampleModalScrollableTitle">Add a Variant</h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div><!--end modal-header-->
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Name</label>
+                        <input type="text" class="form-control" placeholder="Variant Name" name="" id="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Choose Size</label>
+                        <div class="col-sm-12">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected="">Select</option>
+                                <option value="1">XS</option>
+                                <option value="2">S</option>
+                                <option value="3">M</option>
+                                <option value="3">L</option>
+                                <option value="3">XL</option>
+                                <option value="3">XXL</option>
+                              </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Color Family</label>
+                        <input type="text" class="form-control" placeholder="Example : Black" name="" id="">
+                    </div>
+                </div><!--end modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save</button>
+                </div><!--end modal-footer-->
+            </div><!--end modal-content-->
+        </div><!--end modal-dialog-->
+    </div>
+
+    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title m-0" id="exampleModalScrollableTitle">Select Categories For your Product </h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div><!--end modal-header-->
+                <div class="modal-body">
+                    <div class="d-flex" style="justify-content: end;">
+                        <div class="col-5">
+                            <label for="" class="form-label">Filter</label>
+                            <input type="text" class="form-control" placeholder="Search..">
+                        </div>
+                    </div>
+                    <div class="accordion accordion-flush mt-4" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h5 class="accordion-header m-0" id="flush-headingOne">
+                                <button class="accordion-button fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    Technology
+                                </button>
+                            </h5>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample" style="">
+                                <div class="accordion-body">
+                                   <input type="text" class="form-control" placeholder="Search in Technlogy">
+                                
+                                <div class="form-check mt-3 col-12">
+                                    <input class="form-check-input" type="checkbox" value="" id="smartphone">
+                                    <label class="form-check-label" for="smartphone">
+                                        Smartphones
+                                    </label>
+                                </div>
+                                <div class="form-check mt-3 col-12">
+                                    <input class="form-check-input" type="checkbox" value="" id="tablet">
+                                    <label class="form-check-label" for="tablet">
+                                        Tablets
+                                    </label>
+                                </div>
+                                <div class="form-check mt-3 col-12">
+                                    <input class="form-check-input" type="checkbox" value="" id="waerables">
+                                    <label class="form-check-label" for="waerables">
+                                        Wearables
+                                    </label>
+                                </div>
+                                <div class="form-check mt-3 col-12">
+                                    <input class="form-check-input" type="checkbox" value="" id="laptop">
+                                    <label class="form-check-label" for="laptop">
+                                        Laptops
+                                    </label>
+                                </div>
+                                <div class="form-check mt-3 col-12">
+                                    <input class="form-check-input" type="checkbox" value="" id="desktop">
+                                    <label class="form-check-label" for="desktop">
+                                        Desktops
+                                    </label>
+                                </div>
+                                <div class="form-check mt-3 col-12">
+                                    <input class="form-check-input" type="checkbox" value="" id="all-in-one">
+                                    <label class="form-check-label" for="all-in-one">
+                                        All-in-One PCs
+                                    </label>
+                                </div>
+                                <div class="form-check mt-3 col-12">
+                                    <input class="form-check-input" type="checkbox" value="" id="security-system">
+                                    <label class="form-check-label" for="security-system">
+                                        Security Systems
+                                    </label>
+                                </div>
+                                <div class="form-check mt-3 col-12">
+                                    <input class="form-check-input" type="checkbox" value="" id="smart-lights">
+                                    <label class="form-check-label" for="smart-lights">
+                                        Smart Lights
+                                    </label>
+                                </div>
+                                <div class="form-check mt-3 col-12">
+                                    <input class="form-check-input" type="checkbox" value="" id="voice-assistant">
+                                    <label class="form-check-label" for="voice-assistant">
+                                        Voice Assistants
+                                    </label>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h5 class="accordion-header m-0" id="flush-headingTwo">
+                                <button class="accordion-button fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                    Fashion
+                                </button>
+                            </h5>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample" style="">
+                                <div class="accordion-body">
+                                    <input type="text" class="form-control" placeholder="Search in Fashion">
+                                 
+                                 <div class="form-check mt-3 col-12">
+                                     <input class="form-check-input" type="checkbox" value="" id="shirts">
+                                     <label class="form-check-label" for="shirts">
+                                         Shirts
+                                     </label>
+                                 </div>
+                                 <div class="form-check mt-3 col-12">
+                                     <input class="form-check-input" type="checkbox" value="" id="pants">
+                                     <label class="form-check-label" for="pants">
+                                         Pants
+                                     </label>
+                                 </div>
+                                 <div class="form-check mt-3 col-12">
+                                     <input class="form-check-input" type="checkbox" value="" id="jackets">
+                                     <label class="form-check-label" for="jackets">
+                                         Jackets
+                                     </label>
+                                 </div>
+                                 <div class="form-check mt-3 col-12">
+                                     <input class="form-check-input" type="checkbox" value="" id="dresses">
+                                     <label class="form-check-label" for="dresses">
+                                         Dresses
+                                     </label>
+                                 </div>
+                                 <div class="form-check mt-3 col-12">
+                                     <input class="form-check-input" type="checkbox" value="" id="bags">
+                                     <label class="form-check-label" for="bags">
+                                         Bags
+                                     </label>
+                                 </div>
+                                 <div class="form-check mt-3 col-12">
+                                     <input class="form-check-input" type="checkbox" value="" id="sun-glasses">
+                                     <label class="form-check-label" for="sun-glasses">
+                                         Sunglasses
+                                     </label>
+                                 </div>
+                                 <div class="form-check mt-3 col-12">
+                                     <input class="form-check-input" type="checkbox" value="" id="watches">
+                                     <label class="form-check-label" for="watches">
+                                         Watches
+                                     </label>
+                                 </div>
+                                 <div class="form-check mt-3 col-12">
+                                     <input class="form-check-input" type="checkbox" value="" id="rings">
+                                     <label class="form-check-label" for="rings">
+                                         Rings
+                                     </label>
+                                 </div>
+                                 <div class="form-check mt-3 col-12">
+                                     <input class="form-check-input" type="checkbox" value="" id="bracelets">
+                                     <label class="form-check-label" for="bracelets">
+                                        Bracelets
+                                     </label>
+                                 </div>
+                                 </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div><!--end modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save</button>
+                </div><!--end modal-footer-->
+            </div><!--end modal-content-->
+        </div><!--end modal-dialog-->
+    </div><!--end modal-->
+    <!-- Top Bar Start -->
+    <div class="topbar d-print-none">
+        <div class="container-xxl">
+            <nav class="topbar-custom d-flex justify-content-between" id="topbar-custom">    
+        
+
+                <ul class="topbar-item list-unstyled d-inline-flex align-items-center mb-0">                        
+                    <li>
+                        <button class="nav-link mobile-menu-btn nav-icon" id="togglemenu">
+                            <i class="iconoir-menu-scale"></i>
+                        </button>
+                    </li> 
+                    <li class="mx-3 welcome-text">
+                        <h3 class="mb-0 fw-bold text-truncate">Seller Panel</h3>
+                        <!-- <h6 class="mb-0 fw-normal text-muted text-truncate fs-14">Here's your overview this week.</h6> -->
+                    </li>                   
+                </ul>
+                <ul class="topbar-item list-unstyled d-inline-flex align-items-center mb-0">
+                    <li class="hide-phone app-search">
+                        <form role="search" action="#" method="get">
+                            <input type="search" name="search" class="form-control top-search mb-0" placeholder="Search here...">
+                            <button type="submit"><i class="iconoir-search"></i></button>
+                        </form>
+                    </li>     
+                    <!--end topbar-language-->
+                    <li class="dropdown topbar-item">
+                        <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="false" aria-expanded="false">
+                            <i class="far fa-envelope"></i>
+                            <span style="top: 43px !important;
+                            left: 49px !important;
+                            background-color: rgb(155, 226, 155) !important;
+                            color: white;" class="position-absolute top-0 start-100 translate-middle bg-danger border border-light rounded-circle">
+                                <small class="thumb-xs">12</small>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu stop dropdown-menu-end dropdown-lg py-0">
+                        
+                            <h5 class="dropdown-item-text m-0 py-3 d-flex justify-content-between align-items-center">
+                                Messages <a href="#" class="badge text-body-tertiary badge-pill">
+                                </a>
+                            </h5>
+                            <ul class="nav nav-tabs nav-tabs-custom nav-success nav-justified mb-1" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link mx-0 active" style="text-align: left;" data-bs-toggle="tab" href="#All" role="tab" aria-selected="true">
+                                        All <span class="badge bg-primary-subtle text-primary badge-pill ms-1">24</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="ms-0" style="max-height:230px;" data-simplebar>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="All" role="tabpanel" aria-labelledby="all-tab" tabindex="0">
+                                        <!-- item-->
+                                        <a href="#" class="dropdown-item py-3">
+                                            <small class="float-end text-muted ps-2">2 min ago</small>
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">
+                                                    <i class="iconoir-wolf fs-4"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-2 text-truncate">
+                                                    <h6 class="my-0 fw-normal text-dark fs-13">Your order is placed</h6>
+                                                    <small class="text-muted mb-0">Dummy text of the printing and industry.</small>
+                                                </div><!--end media-body-->
+                                            </div><!--end media-->
+                                        </a><!--end-item-->
+                                        <!-- item-->
+                                        <a href="#" class="dropdown-item py-3">
+                                            <small class="float-end text-muted ps-2">10 min ago</small>
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">
+                                                    <i class="iconoir-apple-swift fs-4"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-2 text-truncate">
+                                                    <h6 class="my-0 fw-normal text-dark fs-13">Meeting with designers</h6>
+                                                    <small class="text-muted mb-0">It is a long established fact that a reader.</small>
+                                                </div><!--end media-body-->
+                                            </div><!--end media-->
+                                        </a><!--end-item-->
+                                        <!-- item-->
+                                        <a href="#" class="dropdown-item py-3">
+                                            <small class="float-end text-muted ps-2">40 min ago</small>
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">                                                    
+                                                    <i class="iconoir-birthday-cake fs-4"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-2 text-truncate">
+                                                    <h6 class="my-0 fw-normal text-dark fs-13">UX 3 Task complete.</h6>
+                                                    <small class="text-muted mb-0">Dummy text of the printing.</small>
+                                                </div><!--end media-body-->
+                                            </div><!--end media-->
+                                        </a><!--end-item-->
+                                        <!-- item-->
+                                        <a href="#" class="dropdown-item py-3">
+                                            <small class="float-end text-muted ps-2">1 hr ago</small>
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">
+                                                    <i class="iconoir-drone fs-4"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-2 text-truncate">
+                                                    <h6 class="my-0 fw-normal text-dark fs-13">Your order is placed</h6>
+                                                    <small class="text-muted mb-0">It is a long established fact that a reader.</small>
+                                                </div><!--end media-body-->
+                                            </div><!--end media-->
+                                        </a><!--end-item-->
+                                        <!-- item-->
+                                        <a href="#" class="dropdown-item py-3">
+                                            <small class="float-end text-muted ps-2">2 hrs ago</small>
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">
+                                                    <i class="iconoir-user fs-4"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-2 text-truncate">
+                                                    <h6 class="my-0 fw-normal text-dark fs-13">Payment Successfull</h6>
+                                                    <small class="text-muted mb-0">Dummy text of the printing.</small>
+                                                </div><!--end media-body-->
+                                            </div><!--end media-->
+                                        </a><!--end-item-->
+                                    </div>
+                                   
+                                </div>
+                            
+                            </div>
+                            <!-- All-->
+                            <a href="pages-notifications.html" class="dropdown-item text-center text-dark fs-13 py-2">
+                                View All <i class="fi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="dropdown topbar-item">
+                        <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <i class="icofont-bell-alt"></i>
+                            <span style="top: 43px !important;
+                            left: 49px !important;
+                            background-color: rgb(155, 226, 155) !important;
+                            color: white;" class="position-absolute top-0 start-100 translate-middle bg-danger border border-light rounded-circle">
+                                <small class="thumb-xs">12</small>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu stop dropdown-menu-end dropdown-lg py-0">
+                            
+                            <h5 class="dropdown-item-text m-0 py-3 d-flex justify-content-between align-items-center">
+                                Notifications <a href="#" class="badge text-body-tertiary badge-pill">
+                                </a>
+                            </h5>
+                            <ul class="nav nav-tabs nav-tabs-custom nav-success nav-justified mb-1" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link mx-0 active" style="text-align: left;" data-bs-toggle="tab" href="#All" role="tab" aria-selected="true">
+                                        All <span class="badge bg-primary-subtle text-primary badge-pill ms-1">24</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="ms-0" style="max-height:230px;" data-simplebar>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="All" role="tabpanel" aria-labelledby="all-tab" tabindex="0">
+                                        <!-- item-->
+                                        <a href="#" class="dropdown-item py-3">
+                                            <small class="float-end text-muted ps-2">2 min ago</small>
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">
+                                                    <i class="iconoir-wolf fs-4"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-2 text-truncate">
+                                                    <h6 class="my-0 fw-normal text-dark fs-13">Your order is placed</h6>
+                                                    <small class="text-muted mb-0">Dummy text of the printing and industry.</small>
+                                                </div><!--end media-body-->
+                                            </div><!--end media-->
+                                        </a><!--end-item-->
+                                        <!-- item-->
+                                        <a href="#" class="dropdown-item py-3">
+                                            <small class="float-end text-muted ps-2">10 min ago</small>
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">
+                                                    <i class="iconoir-apple-swift fs-4"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-2 text-truncate">
+                                                    <h6 class="my-0 fw-normal text-dark fs-13">Meeting with designers</h6>
+                                                    <small class="text-muted mb-0">It is a long established fact that a reader.</small>
+                                                </div><!--end media-body-->
+                                            </div><!--end media-->
+                                        </a><!--end-item-->
+                                        <!-- item-->
+                                        <a href="#" class="dropdown-item py-3">
+                                            <small class="float-end text-muted ps-2">40 min ago</small>
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">                                                    
+                                                    <i class="iconoir-birthday-cake fs-4"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-2 text-truncate">
+                                                    <h6 class="my-0 fw-normal text-dark fs-13">UX 3 Task complete.</h6>
+                                                    <small class="text-muted mb-0">Dummy text of the printing.</small>
+                                                </div><!--end media-body-->
+                                            </div><!--end media-->
+                                        </a><!--end-item-->
+                                        <!-- item-->
+                                        <a href="#" class="dropdown-item py-3">
+                                            <small class="float-end text-muted ps-2">1 hr ago</small>
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">
+                                                    <i class="iconoir-drone fs-4"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-2 text-truncate">
+                                                    <h6 class="my-0 fw-normal text-dark fs-13">Your order is placed</h6>
+                                                    <small class="text-muted mb-0">It is a long established fact that a reader.</small>
+                                                </div><!--end media-body-->
+                                            </div><!--end media-->
+                                        </a><!--end-item-->
+                                        <!-- item-->
+                                        <a href="#" class="dropdown-item py-3">
+                                            <small class="float-end text-muted ps-2">2 hrs ago</small>
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">
+                                                    <i class="iconoir-user fs-4"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-2 text-truncate">
+                                                    <h6 class="my-0 fw-normal text-dark fs-13">Payment Successfull</h6>
+                                                    <small class="text-muted mb-0">Dummy text of the printing.</small>
+                                                </div><!--end media-body-->
+                                            </div><!--end media-->
+                                        </a><!--end-item-->
+                                    </div>
+                                </div>
+                            
+                            </div>
+                            <!-- All-->
+                            <a href="pages-notifications.html" class="dropdown-item text-center text-dark fs-13 py-2">
+                                View All <i class="fi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="topbar-item">
+                        <a class="nav-link nav-icon" href="javascript:void(0);" id="light-dark-mode">
+                            <i class="icofont-moon dark-mode"></i>
+                            <i class="icofont-sun light-mode"></i>
+                        </a>                    
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="false" aria-expanded="false">
+                        <img src="assets/images/flags/us_flag.jpg" alt="" class="thumb-sm rounded-circle">
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#"><img src="assets/images/flags/us_flag.jpg" alt="" height="15" class="me-2">English</a>
+                            <a class="dropdown-item" href="#"><img src="assets/images/flags/spain_flag.jpg" alt="" height="15" class="me-2">Spanish</a>
+                            <a class="dropdown-item" href="#"><img src="assets/images/flags/germany_flag.jpg" alt="" height="15" class="me-2">German</a>
+                            <a class="dropdown-item" href="#"><img src="assets/images/flags/french_flag.jpg" alt="" height="15" class="me-2">French</a>
+                        </div>
+                    </li>
+                    <li class="dropdown topbar-item">
+                        <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="false" aria-expanded="false">
+                            <img src="assets/images/users/avatar-1.jpg" alt="" class="thumb-lg rounded-circle">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end py-0">
+                            <div class="d-flex align-items-center dropdown-item py-2 bg-secondary-subtle">
+                                <div class="flex-shrink-0">
+                                    <img src="assets/images/users/avatar-1.jpg" alt="" class="thumb-md rounded-circle">
+                                </div>
+                                <div class="flex-grow-1 ms-2 text-truncate align-self-center">
+                                    <h6 class="my-0 fw-medium text-dark fs-13">William Martin</h6>
+                                    <small class="text-muted mb-0">Front End Developer</small>
+                                </div><!--end media-body-->
+                            </div>
+                            <div class="dropdown-divider mt-0"></div>
+                            <small class="text-muted px-2 pb-1 d-block">Account</small>
+                            <a class="dropdown-item" href="pages-profile.html"><i class="las la-user fs-18 me-1 align-text-bottom"></i> Profile</a>
+                            <a class="dropdown-item" href="pages-faq.html"><i class="las la-wallet fs-18 me-1 align-text-bottom"></i> Earning</a>
+                            <small class="text-muted px-2 py-1 d-block">Settings</small>                        
+                            <a class="dropdown-item" href="pages-profile.html"><i class="las la-cog fs-18 me-1 align-text-bottom"></i>Account Settings</a>
+                            <a class="dropdown-item" href="pages-profile.html"><i class="las la-lock fs-18 me-1 align-text-bottom"></i> Security</a>
+                            <a class="dropdown-item" href="pages-faq.html"><i class="las la-question-circle fs-18 me-1 align-text-bottom"></i> Help Center</a>                       
+                            <div class="dropdown-divider mb-0"></div>
+                            <a class="dropdown-item text-danger" href="auth-login.html"><i class="las la-power-off fs-18 me-1 align-text-bottom"></i> Logout</a>
+                        </div>
+                    </li>
+                </ul><!--end topbar-nav-->
+            </nav>
+            <!-- end navbar-->
+        </div>
+    </div>
+    <!-- Top Bar End -->
+
+    <!-- leftbar-tab-menu -->
+    <div class="startbar d-print-none">
+        <!--start brand-->
+        <div class="brand">
+            <a href="index.html" class="logo">
+                <span>
+                    <img src="assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
+                </span>
+                <span class="">
+                    <img src="assets/images/logo-light.png" alt="logo-large" class="logo-lg logo-light">
+                    <img src="assets/images/logo-dark.png" alt="logo-large" class="logo-lg logo-dark">
+                </span>
+            </a>
+        </div>
+        <!--end brand-->
+        <!--start startbar-menu-->
+        <div class="startbar-menu" >
+            <div class="startbar-collapse" id="startbarCollapse" data-simplebar>
+                <div class="d-flex align-items-start flex-column w-100">
+                    <!-- Navigation -->
+                    <ul class="navbar-nav mb-auto w-100">
+                        <li class="menu-label pt-0 mt-0">
+                            <!-- <small class="label-border">
+                                <div class="border_left hidden-xs"></div>
+                                <div class="border_right"></div>
+                            </small> -->
+                            <span>Main Menu</span>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html" role="button"
+                                aria-expanded="false" aria-controls="sidebarDashboards">
+                                <i class="iconoir-home-simple menu-icon"></i>
+                                <span>Dashboard</span>
+                            </a>
+                           <!--end startbarDashboards-->
+                        </li>
+                      
+                        <li class="menu-label pt-0 mt-0">
+                            <small class="label-border">
+                                <div class="border_left hidden-xs"></div>
+                                <div class="border_right"></div>
+                            </small>
+                            <span>Pages</span>
+                        </li>
+                          <!-- product -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sidebarproducts" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarproducts">
+                                <i class="fas fa-shopping-basket menu-icon"></i>
+                                <span>Products</span>
+                            </a>
+                            <div class="collapse " id="sidebarproducts">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./ecommerce-products.html">Manage Products</a>
+                                    </li><!--end nav-item-->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./add-products.html">Add Products</a>
+                                    </li><!--end nav-item-->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./media-center.html">Media Center</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./ecommerce-refunds.html">Fulfilment by 
+                                            Name
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./brand.html">Brand Management</a>
+                                    </li><!--end nav-item-->
+                                </ul><!--end nav-->
+                            </div><!--end startbarDashboards-->
+                        </li>
+                        <!-- product -->
+                           <!-- order -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sidebarOrder" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarOrder">
+                                <i class="fas fa-box-open menu-icon"></i>
+                                <span>Orders and Refund</span>
+                            </a>
+                            <div class="collapse " id="sidebarOrder">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./ecommerce-orders.html">Orders</a>
+                                    </li><!--end nav-item-->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./ecommerce-order-details.html">Order Details</a>
+                                    </li><!--end nav-item-->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./ecommerce-refunds.html">Refunds</a>
+                                    </li><!--end nav-item-->
+                                </ul><!--end nav-->
+                            </div><!--end startbarDashboards-->
+                        </li>
+                        <!-- order -->
+                           <!-- Marketing -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sidebarMarketing" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarMarketing">
+                                <i class="fab fa-facebook-messenger menu-icon"></i>
+                                <span>Marketing Center</span>
+                            </a>
+                            <div class="collapse " id="sidebarMarketing">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./campaign.html">Compaign (New)</a>
+                                    </li><!--end nav-item-->
+                                    <!--end nav-item-->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./flash.html">NameFlash</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./free-shipping.html">Free Shipping (Old)</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./bundles.html">Bundles</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./promotions.html">Promotions</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./Programs.html">Name Programs</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./marketing-solution.html">Marketing Solutions</a>
+                                    </li>
+                                    <!--end nav-item-->
+                                </ul><!--end nav-->
+                            </div><!--end startbarDashboards-->
+                        </li>
+                        <!-- order -->
+                           <!-- DataInsight -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sidebarDataInsight" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarDataInsight">
+                                <i class="fas fa-chart-line    menu-icon"></i>
+                                <span>Data Insight</span>
+                            </a>
+                            <div class="collapse " id="sidebarDataInsight">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./business-advisor.html">Business Advisor</a>
+                                    </li><!--end nav-item-->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./account-health.html">Account Health</a>
+                                    </li><!--end nav-item-->
+                                    <!--end nav-item-->
+                                </ul><!--end nav-->
+                            </div><!--end startbarDashboards-->
+                        </li>
+                        <!-- DataInsight -->
+                            <!-- Grow -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sidebarGrow" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarGrow">
+                                <i class="fas fa-seedling  menu-icon"></i>
+                                <span>Learn and Grow</span>
+                            </a>
+                            <div class="collapse " id="sidebarGrow">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="ecommerce-orders.html">Name University</a>
+                                    </li><!--end nav-item-->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./seller-challenges.html">New Seller Challenge</a>
+                                    </li><!--end nav-item-->
+                                    <!--end nav-item-->
+                                </ul><!--end nav-->
+                            </div><!--end startbarDashboards-->
+                        </li>
+                        <!-- Grow -->
+                             <!-- store -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sidebarstore" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarstore">
+                                <i class="fas fa-store-alt menu-icon"></i>
+                                <span>Store</span>
+                            </a>
+                            <div class="collapse " id="sidebarstore">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="ecommerce-orders.html">Store Decoration</a>
+                                    </li><!--end nav-item-->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="ecommerce-order-details.html">Store Settings</a>
+                                    </li><!--end nav-item-->
+                                    <!--end nav-item-->
+                                </ul><!--end nav-->
+                            </div><!--end startbarDashboards-->
+                        </li>
+                        <!-- store -->
+                           <!-- finance -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sidebarfinance" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarfinance">
+                                <i class="fas fa-wallet menu-icon"></i>
+                                <span>Finance</span>
+                            </a>
+                            <div class="collapse " id="sidebarfinance">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./my-income.html">My Income</a>
+                                    </li><!--end nav-item-->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="ecommerce-order-details.html">Seller Finance</a>
+                                    </li><!--end nav-item-->
+                                    <!--end nav-item-->
+                                </ul><!--end nav-->
+                            </div><!--end startbarDashboards-->
+                        </li>
+                        <!-- finance -->
+                           <!-- Help -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sidebarHelp" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarHelp">
+                                <i class="fas fa-question-circle  menu-icon"></i>
+                                <span>Support</span>
+                            </a>
+                            <div class="collapse " id="sidebarHelp">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="pages-faq.html">Help Center</a>
+                                    </li><!--end nav-item-->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./projects-chat.html">Chat With Us</a>
+                                    </li><!--end nav-item-->
+                                    <!--end nav-item-->
+                                </ul><!--end nav-->
+                            </div><!--end startbarDashboards-->
+                        </li>
+                        <!-- Help -->
+                           <!-- Account -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sidebarAccount" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarAccount">
+                                <i class="fas fa-user  menu-icon"></i>
+                                <span>My Account</span>
+                            </a>
+                            <div class="collapse " id="sidebarAccount">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./settings.html">Settings</a>
+                                    </li><!--end nav-item-->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./user-management.html">User Management</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./account-setting.html">Account Setting</a>
+                                    </li>
+                                    <!--end nav-item-->
+                                    <!--end nav-item-->
+                                </ul><!--end nav-->
+                            </div><!--end startbarDashboards-->
+                        </li>
+                        <!-- Account -->
+                        <!--end nav-item-->
+                        <!--end nav-item-->
+                    </ul><!--end navbar-nav--->
+                    <!-- <div class="update-msg text-center"> 
+                        <div class="d-flex justify-content-center align-items-center thumb-lg update-icon-box  rounded-circle mx-auto">
+                            <i class="iconoir-peace-hand h3 align-self-center mb-0 text-primary"></i>
+                        </div>                   
+                        <h5 class="mt-3">Mannat Themes</h5>
+                        <p class="mb-3 text-muted">Rizz is a high quality web applications.</p>
+                        <a href="javascript: void(0);" class="btn text-primary shadow-sm rounded-pill">Upgrade your plan</a>
+                    </div> -->
+                </div>
+            </div><!--end startbar-collapse-->
+        </div><!--end startbar-menu-->    
+    </div>
+    <!--end startbar-->
+    <div class="startbar-overlay d-print-none"></div>
+    <!-- end leftbar-tab-menu-->
+
+    <div class="page-wrapper">
+        <!-- Page Content-->
+        <div class="page-content">
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Add Product</h3>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h4 class="card-title">Basic Information</h4>
+                                    </div>
+                                    <!--end col-->
+                                </div>
+                                <!--end row-->
+                            </div>
+                            <!--end card-header-->
+                            <div class="card-body pt-0">
+                                <form>
+                                    <div class="row align-items-center">
+                                        <div class="col-3">
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label">Product Name</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                                    aria-describedby="emailHelp" placeholder="Enter Product Name" />
+                                                <small id="emailHelp" class="form-text text-muted">Please enter at least 10 characters</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-3 d-flex" style="flex-direction: column;margin-top:-20px;">
+                                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">
+                                                Choose Category
+                                            </button>
+                                        </div>
+                                        <div class="selected-categories">
+                                            <label for="" class="form-label col-12">Selected Categories</label>
+                                            <div class="tag">
+                                                Technology
+                                                <span class="close-btn" onclick="removeTag(this)">×</span>
+                                              </div>
+                                              <div class="tag">
+                                                Mobiles
+                                                <span class="close-btn" onclick="removeTag(this)">×</span>
+                                              </div>
+                                              <div class="tag">
+                                                Smart Phones
+                                                <span class="close-btn" onclick="removeTag(this)">×</span>
+                                              </div>
+                                        </div>
+                                        <div class="col-12 product-images-section mt-2 mb-2">
+                                            <div class="product-images">
+                                                <label for="product-image-upload" style="font-weight: 600;">Product Images</label>
+                                                <p class="text-secondary">You can upload up to 10 images , But Cannot add the same image again.</p>
+                                                <div class="image-container">
+                                                    <!-- Existing Product Image -->
+                                                    
+                                                    <!-- Add New Image Button -->
+                                                    <div class="add-image-box" onmouseenter="showDropdown()" onmouseleave="hideDropdown()">
+                                                        <span class="plus-icon">+</span>
+                                                        <!-- Dropdown Menu -->
+                                                        <div class="dropdown-menu-img">
+                                                            <div onclick="triggerUpload()">Upload</div>
+                                                            <div><a href="./media-center.html">Media Center</a></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Hidden File Input for Upload -->
+                                                <input type="file" id="product-image-upload" style="display: none;" accept="image/*" onchange="previewImage(event)">
+                                                <!-- Error Message -->
+                                                <p id="error-message" class="error-message" style="display: none;">Image limit exceeded. You can only add up to 10 images.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 product-video-section mt-2">
+                                            <div class="video-section">
+                                                <label for="product-image-upload" style="font-weight: 600;margin-bottom:20px;">Upload Video</label>
+                                                <div class="video-options">
+                                                    <input class="form-check-input" id="uploadVideo" name="videoOption" onclick="showSection('upload')" checked type="radio" name="inlineRadioOptions"/>
+                                                    <label class="form-check-label" for="uploadVideo">Upload Video</label>
+                                                    
+
+                                                    <input class="form-check-input" id="youtubeLink" name="videoOption" onclick="showSection('youtube')" type="radio"/>
+                                                    <label class="form-check-label" for="youtubeLink">Youtube Link</label>
+                                                    
+
+                                                    <input class="form-check-input" id="mediaCenter" name="videoOption" onclick="showSection('media')" type="radio"/>
+                                                    <label class="form-check-label" for="mediaCenter">Media Center</label>
+                                                    
+                                                </div>
+                                            
+                                                <!-- Upload Video Section -->
+                                                <div id="uploadSection" class="video-upload-section">
+                                                    <div class="upload-container row d-flex gap-3">
+                                                        <div class="col-1">
+                                                          <label for="fileInput" id="uploadButton" class="upload-box">
+                                                            <span class="plus-icon">+</span>
+                                                            <input type="file" id="fileInput" accept="video/mp4" hidden onchange="validateVideo()">
+                                                          </label>
+                                                        </div>
+                                                        <div class="col-7">
+                                                          <ul class="upload-instructions" id="uploadInstructions">
+                                                            <li class="text-secondary">Min size: 480 x 480 px, max video length: 60 seconds, max file size: 100MB.</li>
+                                                            <li class="text-secondary">Supported Format: mp4</li>
+                                                            <li class="text-secondary">New video might take up to 36 hrs to be approved</li>
+                                                          </ul>
+                                                        </div>
+                                                      <div class="col-12" style="padding:0px 20px;">
+                                                          <div class="progress-container" id="progressContainer">
+                                                              <div class="text-center text-secondary" style="background-color: #f5f9ff;">File is Uploading ! Just a moment...</div>
+                                                            <div class="progress-bar" id="progressBar"></div>
+                                                          </div>
+                                                      </div>
+                                                      
+                                                        <div id="preview" class="file-preview">
+                                                          <img id="thumbnail" class="thumbnail" alt="Video Thumbnail">
+                                                          <div class="file-info">
+                                                            <div id="fileName">File name</div>
+                                                            <div class="status">Under Review</div>
+                                                          </div>
+                                                          <i class="fas fa-trash delete-btn" id="deleteBtn" title="Delete Video"></i>
+                                                        </div>
+                                                      </div>
+                                                    <p id="error-message" class="error-message" style="display: none; color: red;">Please upload a video that meets the requirements.</p>
+                                                    <!-- <div class="upload-container">
+                                                        <input type="file" id="fileInput" accept="video/*" hidden>
+                                                        <label for="fileInput" class="btn btn-primary upload-button" id="uploadButton">
+                                                          <i class="fas fa-upload"></i> Choose Video
+                                                        </label>
+                                                      
+                                                        <div class="progress-container" id="progressContainer">
+                                                          <div class="progress-bar" id="progressBar"></div>
+                                                        </div>
+                                                        
+                                                        <div id="preview" class="file-preview">
+                                                          <img id="thumbnail" class="thumbnail" alt="Video Thumbnail">
+                                                          <div class="file-info">
+                                                            <div id="fileName">File name</div>
+                                                            <div class="status">Under Review</div>
+                                                          </div>
+                                                          <i class="fas fa-trash delete-btn" id="deleteBtn" title="Delete Video"></i>
+                                                        </div>
+                                                      </div> -->
+                                                </div>
+                                            
+                                                <!-- YouTube Link Section -->
+                                                <div id="youtubeSection" class="youtube-section" style="display: none;">
+                                                    <input type="url" placeholder="Enter YouTube URL" class="youtube-input">
+                                                </div>
+                                            
+                                                <!-- Media Center Section -->
+                                                <div id="mediaSection" class="media-center-section" style="display: none;">
+                                                    <button class="btn btn-primary"><a href="./media-center.html" style="color:white;">Open Media Center</a></button>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--end card-body-->
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h4 class="card-title">Product Specifications</h4><br>
+                                        <p class="text-secondary">Fill more product specification will increase product searchability.</p>
+                                    </div>
+                                    <!--end col-->
+                                </div>
+                                <!--end row-->
+                            </div>
+                            <div class="card-body pt-0">
+                                <form>
+                                    <div class="row product-specification">
+                                        <div class="col-6">
+                                            <div class="mb-3 custom-dropdown">
+                                                <label class="form-label" for="customBrandDropdown">Brand</label>
+                                                <div class="custom-form-control form-control" id="customBrandDropdown" onclick="toggleCustomDropdown()">
+                                                    Select
+                                                </div>
+                                                <div id="customDropdownMenu" class="custom-dropdown-menu">
+                                                    <div class="custom-dropdown-item text-center text-secondary" onclick="selectBrand('Not found')">Not found</div>
+                                                    <div class="custom-dropdown-item text-center" onclick="selectBrand('Nike')">Nike</div>
+                                                    <div class="custom-dropdown-item text-center" onclick="selectBrand('Puma')">Puma</div>
+                                                    <hr style="margin:0;">
+                                                    <div class="custom-dropdown-item ">Cannot find brand ? <a href="./brand-details.html">Add New Brand</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 model-field hidden" id="modelField2">
+                                            <div class="mb-3">
+                                                <label for="model" class="form-label">Model</label>
+                                                <input type="text" class="form-control" id="model" placeholder="Enter Here">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="toggle-link" data-target="modelField2">Show More</a>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h4 class="card-title">Price, Stock Variants</h4><br>
+                                        <p class="text-secondary">You can add variants to a product that has more than one option, such as size or color.</p>
+                                    </div>
+                                    <!--end col-->
+                                </div>
+                                <!--end row-->
+                            </div>
+                            <div class="card-body pt-0">
+                                    <div class="variants">
+                                        <div class="heading-model d-flex justify-content-between">
+                                            <label for="" class="form-label">Variants</label>
+                                            <a style="cursor:pointer;color: #20bb59;" data-bs-toggle="modal" data-bs-target="#variants">+ Add Variant</a>
+                                        </div>
+                                        <div class="added-variants">
+                                                <h4 class="text-center text-secondary mt-3 mb-3 no-variation-message">No Variation Added for this Product</h4>
+                                                <div class="variant col-12">
+                                                    <div class="col-2">
+                                                        <div class="variant-img-container">
+                                                            <img class="variant-img" src="./assets/images/products/01.png">
+                                                            <img class="variant-img" src="./assets/images/products/02.png">
+                                                            <img class="variant-img" src="./assets/images/products/03.png">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-10">
+                                                        <div class="d-flex justify-content-between description">
+                                                            <div class="variant-text">
+                                                                <h4 style="font-weight:900;">T-shirt</h4>
+                                                                <h6><strong>Color : </strong>Yellow</h6>
+                                                                <h6 class="card-subtitle"><strong>Size : </strong>L</h6>
+                                                            </div>
+                                                            <div class="variant-del">
+                                                                <i style="cursor:pointer;" class="fas fa-trash delete-btn" id="variant-del"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="variant col-12">
+                                                    <div class="col-2">
+                                                        <div class="variant-img-container">
+                                                            <img class="variant-img" src="./assets/images/products/01.png">
+                                                            <img class="variant-img" src="./assets/images/products/02.png">
+                                                            <img class="variant-img" src="./assets/images/products/03.png">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-10">
+                                                        <div class="d-flex justify-content-between description">
+                                                            <div class="variant-text">
+                                                                <h4 style="font-weight:900;">T-shirt</h4>
+                                                                <h6><strong>Color : </strong>Yellow</h6>
+                                                                <h6 class="card-subtitle"><strong>Size : </strong>L</h6>
+                                                            </div>
+                                                            <div class="variant-del">
+                                                                <i style="cursor:pointer;" class="fas fa-trash delete-btn" id="variant-del"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                        </div>
+                                    </div>
+                                    <label for="" class="form-label mt-4">Price & Stock</label>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped mb-0">
+                                            <thead class="table-light">
+                                            <tr>
+                                                <th class="text-center">Price</th>
+                                                <th class="text-center">Special Price</th>
+                                                <th class="text-center">Stock</th>
+                                                <th class="text-center">SellerSKU</th>
+                                                <th class="text-center">Free Items</th>
+                                                <th class="text-center">Availability</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="col-12">
+                                                        <input type="text" placeholder="Rs." class="form-control">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-12">
+                                                        <input type="text" placeholder="Add" class="form-control">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-12">
+                                                        <input type="number" class="form-control">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-12">
+                                                        <input type="text" placeholder="Seller SKU  0/200" class="form-control">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-12">
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-12">
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table><!--end /table-->
+                                    </div><!--end /tableresponsive-->          
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h4 class="card-title">Product Description</h4><br>
+                                    </div>
+                                    <!--end col-->
+                                </div>
+                                <!--end row-->
+                            </div>
+                            <div class="card-body pt-0">
+                                <form>
+                                    <div class="row product-specification">
+                                            <div class="col-12">
+                                                <div class="card">
+                                                    <!--end card-header-->
+                                                    <div class="card-body p-0">
+                                                        <h6 class="card-title text-secondary">Main Description</h6>                      
+                                                        <div class="editor">
+                                                            <p>Hello World!</p>
+                                                            <p>Some initial <strong>bold</strong> text</p>
+                                                            <p><br /></p>
+                                                        </div> 
+                                                    </div><!--end card-body--> 
+                                                </div><!--end card--> 
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="card">
+                                                    <!--end card-header-->
+                                                    <div class="card-body p-0">
+                                                        <h6 class="card-title text-secondary">Product Description</h6>                      
+                                                        <div class="editor">
+                                                            <p>Hello World!</p>
+                                                            <p>Some initial <strong>bold</strong> text</p>
+                                                            <p><br /></p>
+                                                        </div> 
+                                                    </div><!--end card-body--> 
+                                                </div><!--end card--> 
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="card">
+                                                    <!--end card-header-->
+                                                    <div class="card-body p-0">
+                                                        <h6 class="card-title text-secondary">Highlight</h6>                      
+                                                        <div class="editor">
+                                                            <p>Hello World!</p>
+                                                            <p>Some initial <strong>bold</strong> text</p>
+                                                            <p><br /></p>
+                                                        </div> 
+                                                    </div><!--end card-body--> 
+                                                </div><!--end card--> 
+                                            </div>
+                                        <div class="col-12 model-field hidden" id="modelField1" >
+                                            <div class="mb-3">
+                                                <label for="model" class="form-label">What's in the box</label>
+                                                <input type="text" class="form-control" id="model">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#"  class="toggle-link" data-target="modelField1">Show More</a>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h4 class="card-title">Shipping & Warranty</h4><br>
+                                        <p class="text-secondary">Switch to enter different package dimensions & weight for variations</p>
+                                        <div class="form-check form-switch" style="cursor:no-drop;">
+                                            <input class="form-check-input"  disabled type="checkbox" id="flexSwitchCheckDefault">
+                                        </div>
+                                        <br>
+                                        <p>Switch on if you need different dimension & weight for different product variants</p>
+                                    </div>
+                                    <!--end col-->
+                                </div>
+                                <!--end row-->
+                            </div>
+                            <div class="card-body pt-0">
+                                <form>
+                                    <div class="col-4 mb-3">
+                                        <label for="model" class="form-label">Pakage Weight</label>
+                                        <div style="display: flex;align-items: center;">
+                                            <input type="text" style="--bs-border-radius:0.4rem 0px 0px 0.4rem;" class="form-control" placeholder="0.001~300">
+                                            <div class="col-3">
+                                                <select style="--bs-border-radius:0px 0.4rem 0.4rem 0px;" class="form-select" id="exampleFormControlSelect1">
+                                                <option>Kg</option>
+                                                <option>g</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row shipping-warranty">
+                                        <label for="exampleInputEmail1" class="form-label">Package Length(cm) * Width(cm) * Height(cm)</label>
+                                        <div>
+                                            <div class="d-flex gap-1">
+                                                <p class="text-sedoncary">How to measure my package dimensions?</p>
+                                                <a class="hover-link" style="cursor: pointer;">View Example</a>
+                                                <div class="hover-content">
+                                                <p class="hover-text">Please <strong>Iclude the package materials</strong>to be used for shipment while entering the package weight and dimenshions. Note that inaccurate package dimenshions may result additional shipping charges or failed delivery.</p>
+                                                <img src="./assets/images/extra/dimension-check.jpg" alt="Example Image">
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <div class="row align-items-center">
+                                                <div class="col-3">
+                                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="0.01~300" />
+                                                
+                                    </div>
+                                                x
+                                                <div class="col-3">
+                                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="0.01~300" />
+                                                </div>
+                                                x
+                                                <div class="col-3">
+                                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="0.01~300" />
+                                                </div>
+                                            </div>                                        
+                                            <div class="col-12 model-field hidden" id="modelField1" >
+                                            <div class="mb-3">
+                                                <label for="model" class="form-label">What's in the box</label>
+                                                <input type="text" class="form-control" id="model">
+                                            </div>
+                                            </div>
+                                    </div>
+                                    <label for="exampleInputEmail1" class="form-label mt-3">Dangerous Goods</label>
+                                    <div class="mb-3 row mt-2">
+                                        <div class="col-1">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked="">
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                  None
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                    Contains battery / flammables / liquid
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class=" col-4 mb-3">
+                                        <label class="form-label" for="exampleFormControlSelect1">Warranty Type</label>
+                                        <select class="form-select" id="exampleFormControlSelect1">
+                                        <option>Select</option>
+                                        <option>International Manufacturer Warranty</option>
+                                        <option>Non-local warranty</option>
+                                        <option>No Warranty</option>
+                                        <option>Local Seller Warranty</option>
+                                        <option>International Warranty</option>
+                                        <option>Local Warranty</option>
+                                        <option>Brand Warranty</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 model-field hidden" id="modelField3" >
+                                            <div class="col-4 mb-3">
+                                                <label class="form-label" for="exampleFormControlSelect1">Warranty Period</label>
+                                                <select class="form-select" id="exampleFormControlSelect1">
+                                                <option>Select</option>
+                                                <option>1 Month</option>
+                                                <option>2 Month</option>
+                                                <option>3 Month</option>
+                                                <option>4 Month</option>
+                                                <option>5 Month</option>
+                                                <option>6 Month</option>
+                                                <option>7 Month</option>
+                                                <option>8 Month</option>
+                                                <option>9 Month</option>
+                                                <option>10 Month</option>
+                                                <option>11 Month</option>
+                                                <option>1 Year</option>
+                                                <option>2 Year</option>
+                                                <option>3 Year</option>
+                                                <option>4 Year</option>
+                                                <option>5 Year</option>
+                                                <option>6 Year</option>
+                                                <option>7 Year</option>
+                                                <option>8 Year</option>
+                                                <option>9 Year</option>
+                                                <option>Life Time Warranty</option>
+                                                <option>N/A</option>
+                                                <option>International Warranty</option>
+                                                <option>Local Warranty</option>
+                                                <option>Brand Warranty</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-4 mb-3">
+                                                <label for="model" class="form-label">Warranty Policy</label>
+                                                <input type="text" class="form-control" id="model">
+                                            </div>
+                                    </div>
+                                    <a href="#"  class="toggle-link" data-target="modelField3">Show More</a>
+                                    <div class="text-end">
+                                        <button class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+                <!--end row-->
+            </div>
+
+
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="Appearance" aria-labelledby="AppearanceLabel">
+                <div class="offcanvas-header border-bottom justify-content-between">
+                  <h5 class="m-0 font-14" id="AppearanceLabel">Appearance</h5>
+                  <button type="button" class="btn-close text-reset p-0 m-0 align-self-center" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">  
+                    <h6>Account Settings</h6>
+                    <div class="p-2 text-start mt-3">
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="settings-switch1">
+                            <label class="form-check-label" for="settings-switch1">Auto updates</label>
+                        </div><!--end form-switch-->
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="settings-switch2" checked>
+                            <label class="form-check-label" for="settings-switch2">Location Permission</label>
+                        </div><!--end form-switch-->
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="settings-switch3">
+                            <label class="form-check-label" for="settings-switch3">Show offline Contacts</label>
+                        </div><!--end form-switch-->
+                    </div><!--end /div-->
+                    <h6>General Settings</h6>
+                    <div class="p-2 text-start mt-3">
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="settings-switch4">
+                            <label class="form-check-label" for="settings-switch4">Show me Online</label>
+                        </div><!--end form-switch-->
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="settings-switch5" checked>
+                            <label class="form-check-label" for="settings-switch5">Status visible to all</label>
+                        </div><!--end form-switch-->
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="settings-switch6">
+                            <label class="form-check-label" for="settings-switch6">Notifications Popup</label>
+                        </div><!--end form-switch-->
+                    </div><!--end /div-->               
+                </div><!--end offcanvas-body-->
+            </div>
+            <!--end Rightbar/offcanvas-->
+            <!--end Rightbar-->
+            <!--Start Footer-->
+            
+            <footer class="footer text-center text-sm-start d-print-none">
+                <div class="container-xxl">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card mb-0 rounded-bottom-0">
+                                <div class="card-body">
+                                    <p class="text-muted mb-0">
+                                        ©
+                                        <script> document.write(new Date().getFullYear()) </script>
+                                        Rizz
+                                        <span
+                                            class="text-muted d-none d-sm-inline-block float-end">
+                                            Crafted with
+                                            <i class="iconoir-heart text-danger"></i>
+                                            by Mannatthemes</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end page content -->
+    </div>
+    
+    <!-- end page-wrapper -->
+
+    <script>
+        function toggleContentShow() {
+            const contentShow = document.getElementById("contentShow");
+            const radioOptions = document.getElementById("radioOptions");
+            
+            if (contentShow.style.display === "none") {
+                contentShow.style.display = "block";
+                radioOptions.style.display = "flex"; 
+            } else {
+                contentShow.style.display = "none";
+                radioOptions.style.display = "none"; 
+                document.getElementById("content1").style.display = "none";
+                document.getElementById("content2").style.display = "none";
+            }
+        }
+    
+        function showContent(contentId) {
+            document.getElementById("content1").style.display = "none";
+            document.getElementById("content2").style.display = "none";
+            document.getElementById(contentId).style.display = "block";
+        }
+    </script>
+
+    <!-- Javascript  -->
+    <!-- vendor js -->
+
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/quill/quill.js"></script>
+    <script src="assets/js/pages/form-editor.init.js"></script>
+    <script src="assets/libs/fullcalendar/index.global.min.js"></script>
+    <script src="assets/js/pages/calendar.init.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script>
+        const MAX_IMAGES = 10;
+      
+      function showDropdown() {
+          document.querySelector('.dropdown-menu-img').style.display = 'flex';
+      }
+      
+      function hideDropdown() {
+          document.querySelector('.dropdown-menu-img').style.display = 'none';
+      }
+      
+      function triggerUpload() {
+          const imageCount = document.querySelectorAll('.image-box').length;
+          if (imageCount >= MAX_IMAGES) {
+              showError("Image limit exceeded. You can only add up to 10 images.");
+          } else {
+              document.getElementById('product-image-upload').click();
+          }
+      }
+      
+      function previewImage(event) {
+          const imageCount = document.querySelectorAll('.image-box').length;
+          if (imageCount >= MAX_IMAGES) {
+              showError("Image limit exceeded. You can only add up to 10 images.");
+              return;
+          }
+      
+          const imageContainer = document.createElement('div');
+          imageContainer.classList.add('image-box');
+      
+          const newImage = document.createElement('img');
+          newImage.src = URL.createObjectURL(event.target.files[0]);
+          newImage.alt = "New Product Image";
+      
+          imageContainer.appendChild(newImage);
+          document.querySelector('.image-container').insertBefore(imageContainer, document.querySelector('.add-image-box'));
+      
+          // Hide the error message if it was shown
+          hideError();
+      }
+      
+      function showError(message) {
+          const errorMessage = document.getElementById('error-message');
+          errorMessage.textContent = message;
+          errorMessage.style.display = 'block';
+      }
+      
+      function hideError() {
+          const errorMessage = document.getElementById('error-message');
+          errorMessage.style.display = 'none';
+      }
+      
+      function openMediaCenter() {
+          alert("Media Center is under construction.");
+      }
+      
+    </script>
+    <script>
+                function showSection(option) {
+                 document.getElementById("uploadSection").style.display = "none";
+                 document.getElementById("youtubeSection").style.display = "none";
+                 document.getElementById("mediaSection").style.display = "none";
+                 document.getElementById("error-message").style.display = "none";
+             
+                 if (option === "upload") {
+                     document.getElementById("uploadSection").style.display = "block";
+                 } else if (option === "youtube") {
+                     document.getElementById("youtubeSection").style.display = "block";
+                 } else if (option === "media") {
+                     document.getElementById("mediaSection").style.display = "block";
+                 }
+             }
+             
+             function validateVideo() {
+                 const fileInput = document.getElementById("videoInput");
+                 const file = fileInput.files[0];
+                 const errorMessage = document.getElementById("error-message");
+             
+                 if (file) {
+                     const maxSize = 100 * 1024 * 1024; // 100MB in bytes
+                     const maxDuration = 60; // 60 seconds
+             
+                     if (file.size > maxSize) {
+                         errorMessage.textContent = "File size should not exceed 100MB.";
+                         errorMessage.style.display = "block";
+                         fileInput.value = ""; // Reset the input
+                         return;
+                     }
+             
+                     const video = document.createElement("video");
+                     video.src = URL.createObjectURL(file);
+             
+                     video.onloadedmetadata = function() {
+                         if (video.duration > maxDuration) {
+                             errorMessage.textContent = "Video length should not exceed 60 seconds.";
+                             errorMessage.style.display = "block";
+                             fileInput.value = ""; // Reset the input
+                         } else {
+                             errorMessage.style.display = "none"; // Clear error if validation passes
+                         }
+                     };
+                 }
+             }
+             
+    </script>
+   <!-- product-specification js -->
+    <script>
+                       document.querySelectorAll('.toggle-link').forEach(toggleLink => {
+    toggleLink.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent default link behavior
+
+        const targetId = toggleLink.getAttribute('data-target'); // Get the target ID
+        const modelField = document.getElementById(targetId);
+        const isExpanded = !modelField.classList.contains('hidden');
+
+        if (isExpanded) {
+            modelField.classList.add('hidden'); // Hide the model field
+            toggleLink.textContent = 'Show More'; // Change link text to "Show More"
+        } else {
+            modelField.classList.remove('hidden'); // Show the model field
+            toggleLink.textContent = 'Show Less'; // Change link text to "Show Less"
+        }
+    });
+});
+    </script>
+    <script>
+                   function toggleCustomDropdown() {
+    const customDropdownMenu = document.getElementById('customDropdownMenu');
+    customDropdownMenu.style.display = customDropdownMenu.style.display === 'block' ? 'none' : 'block';
+}
+
+function selectBrand(brand) {
+    const customBrandDropdown = document.getElementById('customBrandDropdown');
+    customBrandDropdown.textContent = brand; // Set the selected brand in the main div
+    document.getElementById('customDropdownMenu').style.display = 'none'; // Hide the dropdown after selection
+}
+
+    </script>
+    <!-- remove selected category -->
+     <script>
+        function removeTag(element) {
+  element.parentElement.style.display = "none";
+}
+
+     </script>
+     
+     <script>
+        const fileInput = document.getElementById('fileInput');
+        const progressContainer = document.getElementById('progressContainer');
+        const progressBar = document.getElementById('progressBar');
+        const preview = document.getElementById('preview');
+        const thumbnail = document.getElementById('thumbnail');
+        const fileName = document.getElementById('fileName');
+        const deleteBtn = document.getElementById('deleteBtn');
+        const uploadButton = document.getElementById('uploadButton');
+        const uploadInstructions = document.getElementById('uploadInstructions');
+      
+        fileInput.addEventListener('change', (event) => {
+          const file = event.target.files[0];
+          
+          if (file) {
+            // Hide the upload button and instructions
+            uploadButton.style.display = 'none';
+            uploadInstructions.style.display = 'none';
+      
+            // Reset and show progress bar
+            preview.style.display = 'none';
+            progressContainer.style.display = 'block';
+            progressBar.style.width = '0%';
+      
+            // Simulate file upload progress
+            let progress = 0;
+            const uploadInterval = setInterval(() => {
+              progress += 5;
+              progressBar.style.width = `${progress}%`;
+      
+              if (progress >= 100) {
+                clearInterval(uploadInterval);
+                progressContainer.style.display = 'none';
+      
+                // Display file information
+                preview.style.display = 'flex';
+                fileName.textContent = file.name;
+      
+                // Generate video thumbnail
+                generateThumbnail(file);
+              }
+            }, 300); // Adjust this value to control the speed of progress simulation
+          }
+        });
+      
+        function generateThumbnail(file) {
+          const video = document.createElement('video');
+          video.src = URL.createObjectURL(file);
+          video.currentTime = 1; // Set the time to capture a thumbnail frame
+      
+          video.addEventListener('loadeddata', () => {
+            // Draw the thumbnail on a canvas
+            const canvas = document.createElement('canvas');
+            canvas.width = 60;
+            canvas.height = 40;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            
+            // Convert the canvas to an image URL and display it
+            thumbnail.src = canvas.toDataURL();
+          });
+        }
+      
+        deleteBtn.addEventListener('click', () => {
+          // Hide preview, reset thumbnail and file name
+          preview.style.display = 'none';
+          thumbnail.src = '';
+          fileName.textContent = '';
+      
+          // Show the upload button and instructions again
+          uploadButton.style.display = 'flex';
+          uploadInstructions.style.display = 'block';
+      
+          // Clear file input to allow re-uploading
+          fileInput.value = '';
+        });
+      </script>
+      <!-- delete variant -->
+       <script>
+       // JavaScript to handle delete functionality and show/hide message
+    const noVariationMessage = document.querySelector('.no-variation-message');
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+
+    function checkVariants() {
+        const variants = document.querySelectorAll('.variant');
+        if (variants.length === 0) {
+            noVariationMessage.style.display = 'block'; // Show message
+        } else {
+            noVariationMessage.style.display = 'none'; // Hide message
+        }
+    }
+
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const variant = this.closest('.variant');
+            variant.nextElementSibling.remove(); // Remove the <hr> element after the variant
+            variant.remove(); // Remove the variant itself
+            checkVariants(); // Check if variants are remaining
+        });
+    });
+
+    // Initial check to see if the message should be shown
+    checkVariants();
+       </script>
+       <!-- quill-editor -->
+        <script>
+            document.querySelectorAll('.editor').forEach((editorElement, index) => {
+        // Apply Quill to each editor element
+        new Quill(editorElement, { theme: "snow" });
+    });
+        </script>
+</body>
+<!--end body-->
+
+<!-- Mirrored from mannatthemes.com/rizz/default/apps-calendar.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 05 Oct 2024 14:08:58 GMT -->
+
+</html>
+

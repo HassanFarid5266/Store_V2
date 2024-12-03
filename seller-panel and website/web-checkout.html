@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewp2ort" content="width=device-width, initial-scale=1.0">
+  <title>Sliding Forms: Login, Signup, Registration, and Forgot Password</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./web-assets/assets/css/kit.css">
+  <link rel="stylesheet" href="./web-assets/assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- header -->
+  <div id="header"></div>
+  <!-- /header -->
+  <!-- preloader -->
+  <div id="preloader"></div>
+  <!-- /preloader -->
+  <div class="content-area">
+    <div class="breadcrumbs-container">
+      <h4>Checkout Page</h4>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="./home.html" class="breadcrumb-link">Home</a></li>
+        <li class="breadcrumb-item"><a href="./cart.html" class="breadcrumb-link">Cart</a></li>
+        <li class="breadcrumb-item active">Checkout Page</li>
+      </ol>
+    </div>
+    <div class="container container-checkout">
+      <div class="shipping-address-form">
+        <form action="" class="add-ship-address">
+          <h4>Add Shipping Address</h4>
+          <hr>
+          <div class="inputs">
+            <div class="form-row">
+              <div class="field">
+                <input style="font-size: 16px;
+font-family: sans-serif;" type="text" class="field-text" placeholder="First Name" />
+              </div>
+              <div class="field">
+                <input style="font-size: 16px;
+font-family: sans-serif;" type="text" class="field-text" placeholder="Last Name" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <input style="font-size: 16px;
+font-family: sans-serif;" type="email" class="field-text" placeholder="Enter Email" />
+              </div>
+              <div class="field">
+                <input style="font-size: 16px;
+font-family: sans-serif;" type="tel" class="field-text" placeholder="Enter Phone Number" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <select style="font-size: 14px;
+font-family: sans-serif;" name="" id="" class="field-select">
+                  <option value="">State / City</option>
+                  <option value="Option">Option</option>
+                  <option value="Option">Option</option>
+                </select>
+              </div>
+              <div class="field">
+                <input style="font-size: 14px;font-family: sans-serif;" type="text" class="field-text" placeholder="ZIP Code" />
+              </div>
+            </div>
+            <div class="field text-area">
+              <textarea class="field-textarea" rows="5"       
+               placeholder="Enter your Address..." ></textarea>
+              </div>
+              <div class="save-btn">
+                <button class="btn btn-info btn-pill">Save</button>
+              </div>
+          </div>
+          <h4>Select Payment Methods</h4>
+          <hr>
+          <div class="payment-container"> 
+              <label class="check check-info check-radio"> <input type="radio" name="payment" value="cash" onclick="togglePaymentFields('none')"/> Cash on Delivery </label>
+              <label class="check check-info check-radio"> <input type="radio" name="payment" value="credit" onclick="togglePaymentFields('credit')"/> Credit Card </label>
+              <label class="check check-info check-radio"> <input type="radio" name="payment" value="stripe" onclick="togglePaymentFields('wallet')"/> Wallet </label>
+          </div>
+          <!-- Credit card fields (initially hidden) -->
+          <div id="credit-card-fields" class="hidden-fields">
+            <div class="grp">
+              <input type="text" placeholder="Name on card" />
+              <input type="number" placeholder="Card number" />
+            </div>
+            <div class="grp">
+              <input type="text" placeholder="Expiry date (MM/YY)" />
+              <input type="number" placeholder="CVC" />
+            </div>
+            <button class="btn btn-info btn-pill">Make Payment</button>
+          </div>
+          <div id="wallet" class="hidden-fields">
+            <div class="row">
+              <div class="col-6">
+                <div class="card balance-card"
+                  style="background-image: url('https://img.freepik.com/premium-vector/green-light-line-dark-grey-geometric-background_33869-1258.jpg');background-repeat: no-repeat;background-size: cover;">
+                  <div class="card-head">Available Balance</div>
+                  <div class="card-body d-flex" style="gap: 10px;">
+                    <span style="font-size: 20px;">Rs</span>
+                    <div class="card-title" style="color: white;font-size: 35px;font-family: emoji;">19,546.89</div>
+                  </div>
+                  <div class="card-foot">
+                    <button class="btn btn-dark">Add Balance</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="checkout-form">
+        <div class="card card-checkout-summary">
+          <div class="card-head">
+            <div class="shipping-address">
+              <h6>Select Shipping Address</h6>
+              <div class="media">
+                <div class="media-head">
+                  <i class="bx bx-map"></i>
+                </div>
+                <div class="media-body">
+                  <div class="card-subtitle">Ammar Shahid</div>
+                  <div class="card-subtitle">03164582746</div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo sapiente architecto nostrum perspiciatis animi libero tenetur mollitia dignissimos! Nulla deserunt doloremque consequatur quis ducimus labore rerum vitae similique excepturi dignissimos.</div>
+                </div>
+                <div class="media-foot">
+                  <label class="check check-info">
+                    <input type="checkbox" class="shipping-checkbox" />
+                  </label>
+                </div>
+              </div>
+              <hr>
+              <div class="media">
+                <div class="media-head">
+                  <i class="bx bx-map"></i>
+                </div>
+                <div class="media-body">
+                  <div class="card-subtitle">Ammar Shahid</div>
+                  <div class="card-subtitle">03164582746</div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo sapiente architecto nostrum perspiciatis animi libero tenetur mollitia dignissimos! Nulla deserunt doloremque consequatur quis ducimus labore rerum vitae similique excepturi dignissimos.</div>
+                </div>
+                <div class="media-foot">
+                  <label class="check check-info">
+                    <input type="checkbox" class="shipping-checkbox" />
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="card-body">
+            <h6>Summary</h6>
+            <div class="media">
+              <div class="media-head">
+                <img src="./web-assets/assets/images/t-shirt_product.jpg" alt="">
+              </div>
+              <div class="media-body">
+                <div class="text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Eligendi optio consectetur voluptate alias? Placeat doloremque architecto eligendi eos quos
+                  repudiandae, velit in, perspiciatis, magnam ipsa nam facere maiores deserunt neque.</div>
+                <div class="media-foot">
+                  <div class="qty">x 1</div>
+                  <div class="card-subtitle">$599</div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="media">
+              <div class="media-head">
+                <img src="./web-assets/assets/images/t-shirt_product.jpg" alt="">
+              </div>
+              <div class="media-body">
+                <div class="text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Eligendi optio consectetur voluptate alias? Placeat doloremque architecto eligendi eos quos
+                  repudiandae, velit in, perspiciatis, magnam ipsa nam facere maiores deserunt neque.</div>
+                <div class="media-foot">
+                  <div class="qty">x 5</div>
+                  <div class="card-subtitle">$599</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="card-foot">
+            <div class="card-subtitle">Subtotal<span>$1098</span></div>
+            <div class="card-subtitle">Discount<span>$0</span></div>
+            <div class="card-subtitle">Shipping<span>$10</span></div>
+            <div class="card-title">Total<span>$1098</span></div>
+            <button class="btn btn-info btn-block btn-pill">Order Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="msg-btn-chat"></div>
+  <!-- /content -->
+  <!-- footer -->
+ <div id="footer"></div>
+  <!-- /footer -->
+
+  <!-- THIRD PARTY JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="./web-assets/assets/js/language.js"></script>
+  <script src="./web-assets/assets/js/dropdowns.js"></script>
+  <script src="./web-assets/assets/js/preloader.js"></script>
+
+  <!-- scripts -->
+  <script>
+    // Load the header dynamically
+     document.getElementById("header").innerHTML = fetch('./web-header.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("header").innerHTML = data;
+    });
+    document.getElementById("msg-btn-chat").innerHTML = fetch('./web-msg-btn.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("msg-btn-chat").innerHTML = data;
+  });
+  
+    document.getElementById("footer").innerHTML = fetch('./web-footer.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("footer").innerHTML = data;
+    });
+    document.getElementById("preloader").innerHTML = fetch('./web-preloader.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("preloader").innerHTML = data;
+    });
+  </script>
+<!-- select payments -->
+<script>
+function togglePaymentFields(paymentType) {
+  var creditCardFields = document.getElementById("credit-card-fields");
+  var walletFields = document.getElementById("wallet");
+
+  // Show credit card fields if "credit" is selected, hide wallet fields
+  if (paymentType === 'credit') {
+    creditCardFields.style.display = 'block';
+    walletFields.style.display = 'none';
+  }
+  // Show wallet fields if "stripe" is selected, hide credit card fields
+  else if (paymentType === 'wallet') {
+    creditCardFields.style.display = 'none';
+    walletFields.style.display = 'block';
+  }
+  // Hide both fields if "cash" is selected
+  else {
+    creditCardFields.style.display = 'none';
+    walletFields.style.display = 'none';
+  }
+}
+
+// Set "Cash on Delivery" as the default selected and hide other fields initially
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector('input[name="payment"][value="cash"]').checked = true;
+  togglePaymentFields('none'); // Hide both fields initially
+});
+</script>
+  <!-- select one address at a time -->
+  <script>
+    // Select all checkboxes with the 'shipping-checkbox' class
+    const checkboxes = document.querySelectorAll('.shipping-checkbox');
+  
+    // Add an event listener to each checkbox
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', function() {
+        if (this.checked) {
+          // Uncheck all other checkboxes
+          checkboxes.forEach(cb => {
+            if (cb !== this) cb.checked = false;
+          });
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

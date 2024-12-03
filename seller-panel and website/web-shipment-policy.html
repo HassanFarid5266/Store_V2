@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewp2ort" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Forms: Login, Signup, Registration, and Forgot Password</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./web-assets/assets/css/kit.css">
+    <link rel="stylesheet" href="./web-assets/assets/css/style.css">
+<style>
+ 
+</style>
+</head>
+<body>
+  <!-- header -->
+  <div id="header"></div>
+  <!-- /header -->
+  <!-- preloader -->
+  <div id="preloader"></div>
+  <!-- /preloader -->
+    <!-- content -->
+<div class="content-area">
+    <div class="breadcrumbs-container">
+        <h4>Shipment Policy</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="" class="breadcrumb-link">Home</a></li>
+            <li class="breadcrumb-item active">Shipment Policy</li>
+          </ol>
+    </div>
+    <main class="container terms-condition content">
+        <h2 class="heading dotted-square">Shipping Locations</h2>
+        <p class="description">
+            <b>Domestic Shipping:</b>Creed Cart offers nationwide shipping within the territory of
+            Pakistan.
+        </p>
+        <p class="description">
+          <b>Excluded Regions:</b>Some countries or regions may be excluded from shipping due to
+          restrictions or logistical challenges. (FATA, FANA)
+      </p>
+        <h2 class="heading dotted-square">Shipping Methods and Delivery Times</h2>
+        <p class="description">
+           <b>Standard Shipping:</b>The typical delivery time for standard shipping is usually 5-7
+           business days for domestic orders, depending on your location.
+        </p>
+        <p class="description">
+          <b>Expedited Shipping:</b> However we offer faster shipping options, such as 2-day or
+          next-day delivery, for an additional fee.          
+       </p>
+       <p class="description">
+        <b>Shipping Partners:</b>Creed Cart works with trusted shipping carriers or local postal
+        services for deliveries.
+     </p>
+        <h2 class="heading dotted-square">Shipping Costs</h2>
+        <p class="description">
+            <b>Tiered shipping cost:</b>Shipping costs are calculated based on the weight, size, and
+            destination of your order, and may vary accordingly.
+        </p>
+        <h2 class="heading dotted-square">Order Processing Time</h2>
+        <p class="description">
+          <b>Order Processing:</b> Once an order is placed, it typically takes 1-2 business days for the
+          order to be processed and shipped. Processing times may vary during peak shopping
+          seasons (e.g., holidays or sales events).
+        </p>
+        <p class="description">
+          <b>Delays:</b>Unforeseen delays due to high demand, weather conditions, or issues with
+          the shipping carrier may extend delivery times.
+        </p>
+        <h2 class="heading dotted-square">Tracking Orders</h2>
+        <p class="description">
+            If you cancel an order before it is processed, a full refund will be
+            issued. However, if the order has already been processed, it will be
+            treated as a standard refund request.
+        </p>
+        <h2 class="heading dotted-square">Contact Information</h2>
+        <p class="description">
+            <b>Tracking Information:</b>After an order is shipped, customers are usually provided with
+            a tracking number via email. This allows customers to monitor the status of their
+            package.
+        </p>
+        <p class="description">
+          <b>Track Your Order:</b>You can track the status of your shipment directly on the carrier’s
+          website using the provided tracking number.
+      </p>
+        <h2 class="heading dotted-square">Shipping Restrictions</h2>
+        <p class="description">
+          <b>P.O. Boxes:</b>Some carriers may not deliver to P.O. Box addresses, so it’s important to
+          ensure your shipping address is accurate and eligible for delivery.
+        </p>
+        <h2 class="heading dotted-square">Order Issues or Shipping Errors</h2>
+        <p class="description">
+          <b>Missing or Damaged Items:</b>If your order is lost, damaged, or incomplete upon arrival,
+          you should immediately contact customer service.          
+        </p>
+        <p class="description">
+          <b>Contact Information:</b>If there is a shipping issue, contacting Creed Cart's customer
+          service team will help resolve any problems quickly.          
+        </p>
+        <h2 class="heading dotted-square">Signature Requirement</h2>
+        <p class="description">
+          <b>Signature on Delivery:</b> For all items, Creed Cart requires a signature upon delivery to
+          ensure that the package is safely received by the customer
+        </p>
+        <h2 class="heading dotted-square">Local Pickup or Store Pickup</h2>
+        <p class="description">
+          <b>In-Store Pickup:</b>Creed Cart offers an in-store pickup option for customers in nearby
+          areas to pick up their orders without additional shipping charges.
+        </p>
+        <br>
+        <br>
+        <h4>Thank you for choosing Creed Cart!</h4>
+    </main>
+</div>
+<div id="msg-btn-chat"></div>
+<!-- /content -->
+ <!-- footer -->
+<div id="footer"></div>
+<!-- /footer -->
+
+ <!-- THIRD PARTY JS -->
+ <script src="./web-assets/assets/js/dropdowns.js"></script>
+ <script src="./web-assets/assets/js/preloader.js"></script>
+ <script src="./web-assets/assets/js/language .js"></script>
+
+<!-- scripts -->
+<script>
+    document.getElementById("msg-btn-chat").innerHTML = fetch('./web-msg-btn.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("msg-btn-chat").innerHTML = data;
+  });
+  // Load the header dynamically
+   document.getElementById("header").innerHTML = fetch('./web-header.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("header").innerHTML = data;
+  });
+
+
+  document.getElementById("footer").innerHTML = fetch('./web-footer.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("footer").innerHTML = data;
+  });
+  document.getElementById("preloader").innerHTML = fetch('./web-preloader.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("preloader").innerHTML = data;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewp2ort" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Forms: Login, Signup, Registration, and Forgot Password</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./web-assets/assets/css/kit.css">
+    <link rel="stylesheet" href="./web-assets/assets/css/style.css">
+<style>
+ 
+</style>
+</head>
+<body>
+  <!-- header -->
+ <div id="header"></div>
+ <!-- /header -->
+ <!-- preloader -->
+ <div id="preloader"></div>
+<!-- /preloader -->
+    <!-- content -->
+<div class="content-area">
+    <div class="breadcrumbs-container">
+        <h4>Exchange and Refund Policy</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="" class="breadcrumb-link">Home</a></li>
+            <li class="breadcrumb-item active">Exchange & Refund</li>
+          </ol>
+    </div>
+    <main class="container terms-condition content">
+        <h2 class="heading dotted-square">Exchanges for Different Products</h2>
+        <p class="description">
+          We offer exchanges for a different product, but
+          exchanges often depend on product availability.          
+        </p>
+        <p class="description">
+          <b>Procedure:</b>Typically, the customer must return the original item, and after it’s
+processed, the new item will be sent out. We may offer direct exchanges without
+requiring a return if there is a defect.
+        </p>
+        <p class="description">
+          <b>Shipping Fees:</b>You may be responsible for paying return shipping costs when
+          exchanging an item. However, if the exchange is due to a mistake on the seller’s part
+          (e.g., wrong item or defective product), they may cover the return shipping costs.          
+        </p>
+        <h2 class="heading dotted-square">Refund Policy</h2>
+        <p class="description">
+          <b>Full Refund:</b>If your return is approved (typically based on the item’s condition and
+          within the return window), you should receive a full refund, minus any potential
+          shipping fees.          
+        </p>
+        <p class="description">
+          <b>Refund Processing Time:</b>Refunds may take 5-10 business days to process after the
+          returned item has been received and inspected.
+        </p>
+        <p class="description">
+          <b>Payment Method:</b>Refunds are typically issued to the original payment method, such
+          as your Bank Card, jazzcash, easypaisa.
+        </p>
+        <h2 class="heading dotted-square">Non-Returnable Items</h2>
+        <p class="description">
+          <b>Opened Items:</b>We will not accept returns on opened or used items. This is because
+          the items have been opened and are no longer in a condition that can be used by
+          another customer.
+        </p>
+        <p class="description">
+          <b>Final Sale:</b>Some items may be marked as "final sale" and will not be eligible for
+          return or exchange under any circumstances.
+        </p>
+        <h2 class="heading dotted-square">Defective or Damaged Products</h2>
+        <p class="description">
+            <b>Returns for Defects:</b>If your item arrives defective, damaged, or if the wrong product
+            was sent, Creed Cart will allow returns or exchanges.            
+        </p>
+        <p class="description">
+          <b>Proof of Damage:</b>You may be asked to provide photos of the damage or a description
+          of the issue for processing your return or exchange.          
+        </p>
+        <p class="description">
+          <b>Return Shipping Costs:</b>In the case of a defective or incorrect product, the company
+          may cover the cost of return shipping.          
+        </p>
+        <h2 class="heading dotted-square">How to Initiate a Return/Exchange</h2>
+        <p class="description">
+          <b>Contact Customer Service:</b>The first step is usually to contact the customer service
+          team at Creed Cart for instructions on returning or exchanging an item.          
+        </p>
+        <p class="description">
+          <b>Return Form:</b>We require you to fill out a return form and request a Return
+          Merchandise Authorization (RMA) number before sending the item back.          
+        </p>
+        <p class="description">
+          <b>Return Label:</b>You might be provided with a prepaid return label for defective or
+          incorrect items, while you may need to pay for shipping if you are returning for other
+          reasons.                    
+        </p>
+
+        
+        <h2 class="heading dotted-square">Shipping Costs</h2>
+        <p class="description">
+          <b>Return Shipping:</b>In any case, customers are responsible for return shipping unless
+          the return is due to a defect, incorrect product, or error on the seller’s part.
+        </p>
+        <p class="description">
+          <b>Original Shipping Fees:</b>Shipping fees from the original purchase are usually
+          non-refundable unless the product was damaged or the wrong item was shipped
+        </p>
+        <h2 class="heading dotted-square">Contact Information</h2>
+        <p class="description">
+          Contact our customer service team directly for any questions about your order. If
+          you’re unsure of the exact steps, the customer service should be able to guide you
+          through the process, especially for issues like returns due to damage, defects, or
+          incorrect items.
+            <a href="" class="link">info@Creed-Cart.com</a>.
+        </p>
+    </main>
+</div>
+<div id="msg-btn-chat"></div>
+<!-- /content -->
+ <!-- footer -->
+<div id="footer"></div>
+<!-- /footer -->
+
+ <!-- THIRD PARTY JS -->
+ <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+ <script src="./web-assets/assets/js/script.js"></script>
+ <script src="./web-assets/assets/js/preloader.js"></script>
+
+<!-- scripts -->
+<script>
+  // Load the header dynamically
+   document.getElementById("header").innerHTML = fetch('./web-header.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("header").innerHTML = data;
+  });
+
+  document.getElementById("msg-btn-chat").innerHTML = fetch('./web-msg-btn.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("msg-btn-chat").innerHTML = data;
+  });
+  document.getElementById("footer").innerHTML = fetch('./web-footer.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("footer").innerHTML = data;
+  });
+  document.getElementById("preloader").innerHTML = fetch('./web-preloader.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("preloader").innerHTML = data;
+  });
+</script>
+</body>
+</html>

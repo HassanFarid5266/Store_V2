@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Switcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .language-selector {
+            margin: 20px;
+        }
+        .language-selector select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        #content {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="language-selector">
+        <label for="languageSelect">Choose a language:</label>
+        <select id="languageSelect" onchange="changeLanguage(this.value)">
+            <!-- Language options will be dynamically added here -->
+        </select>
+    </div>
+
+    <div id="content">
+        <p>Welcome to our website!</p>
+    </div>
+
+    <!-- Google Translate API Script -->
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+        let googleTranslateElementInit = function() {
+            console.log("Google Translate Initialized");
+
+            // Create the Google Translate widget
+            new google.translate.TranslateElement({
+                pageLanguage: 'en', // Default language of your page
+                includedLanguages: 'en,es,fr,de,ru,zh,ja', // List of available languages
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false // Prevent auto-display of the widget
+            }, 'google_translate_element');
+        };
+
+        // Function to handle language change
+        function changeLanguage(languageCode) {
+            console.log("Language change triggered:", languageCode);
+
+            // Find the Google Translate iframe
+            const iframe = document.querySelector('iframe');
+            if (iframe) {
+                const iframeContent = iframe.contentWindow;
+
+                // Trigger the change in the iframe by selecting the appropriate language
+                const select = iframeContent.document.querySelector('select');
+                if (select) {
+                    select.value = languageCode;
+                    select.dispatchEvent(new Event('change')); // Simulate change event
+                    console.log(`Language switched to: ${languageCode}`);
+                } else {
+                    console.error("Language select element not found inside the iframe");
+                }
+            } else {
+                console.error("Google Translate iframe not found");
+            }
+        }
+
+        // Function to dynamically populate the language options in the dropdown
+        function customizeLanguages() {
+            console.log("Customizing language options...");
+            const availableLanguages = ['en', 'es', 'fr', 'de', 'ru', 'zh', 'ja']; // List of available languages
+            const selectElement = document.getElementById('languageSelect');
+
+            // Empty the select options before adding new ones
+            selectElement.innerHTML = '';
+
+            // Add the languages you want to include
+            availableLanguages.forEach(lang => {
+                const option = document.createElement('option');
+                option.value = lang;
+                option.textContent = getLanguageName(lang); // Text for the option
+                selectElement.appendChild(option);
+                console.log(`Added language: ${getLanguageName(lang)}`);
+            });
+        }
+
+        // Function to get the language name based on the code
+        function getLanguageName(langCode) {
+            switch (langCode) {
+                case 'en': return 'English';
+                case 'es': return 'Spanish';
+                case 'fr': return 'French';
+                case 'de': return 'German';
+                case 'ru': return 'Russian';
+                case 'zh': return 'Chinese';
+                case 'ja': return 'Japanese';
+                default: return 'Unknown Language';
+            }
+        }
+
+        // Initialize the language options on page load
+        window.onload = function() {
+            console.log("Page loaded, initializing...");
+            googleTranslateElementInit();  // Initialize Google Translate widget
+            customizeLanguages(); // Populate the select menu with available languages
+        };
+    </script>
+
+</body>
+</html>

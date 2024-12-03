@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewp2ort" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Forms: Login, Signup, Registration, and Forgot Password</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./web-assets/assets/css/kit.css">
+    <link rel="stylesheet" href="./web-assets/assets/css/style.css">
+<style>
+/* tabs */
+
+.drop-profile {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.drop-profile-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+  border-radius: 5px;
+  padding: 10px 0px;
+  top: 60px; /* Adjusted to position below the avatar image */
+  /* right: 0; */
+}
+
+.drop-profile-content a {
+  color: black;
+  padding: 12px 20px;
+  transition: all 0.2s ease-in-out;
+  font-size: 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.drop-profile-content a:hover {
+  background-color: #10182f;
+  color: white;
+}
+
+.showed {
+  display: block !important;
+}
+
+ /* Container for the button */
+/* Container for the button */
+/* Container for the button */
+/* Container for the button */
+.message-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff; /* Button color */
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(100px);
+    border: 2px solid transparent; /* Start with no visible border */
+    animation: slideIn 2s ease forwards, borderPulse 3s infinite ease-in-out; /* Added border animation */
+}
+
+/* Icon inside the button */
+.message-btn .icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+/* Text inside the button */
+.message-btn .message-text {
+    font-weight: 600;
+}
+
+/* Slide in animation */
+@keyframes slideIn {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+}
+
+/* Border pulse animation */
+@keyframes borderPulse {
+    0%, 100% {
+        border-color: transparent; /* Start and end with no visible border */
+    }
+    50% {
+        border-color: #ffffff; /* The border appears at 50% of the animation */
+        border-width: 2px; /* Set the border thickness */
+    }
+}
+
+/* Hover effect */
+.message-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+</style>
+</head>
+<body>
+  <!-- header -->
+   <div id="header"></div>
+  <!-- /header -->
+  <!-- Preloader -->
+  <div id="preloader"></div>
+<!-- /Preloader -->
+    <!-- content -->
+<div class="content-area">
+    <div class="breadcrumbs-container">
+        <h4>My Wishlist</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="" class="breadcrumb-link">Home</a></li>
+            <li class="breadcrumb-item active">My Wishlist & Followed Stores</li>
+          </ol>
+    </div>
+    <div class="container my-wishlist">
+        <div class="tabs">
+            <ul class="tab-list">
+              <li class="tab-item active" onclick="openTab(event, 'tab1')">My Wishlist</li>
+              <li class="tab-item" onclick="openTab(event, 'tab2')">Past Purchases</li>
+              <li class="tab-item" onclick="openTab(event, 'tab3')">Followed Stores</li>
+            </ul>
+          
+            <div class="tab-content">
+              <div id="tab1" class="tab-pane active">
+                <p class="text-center">There are no favorites yet.<br>
+                    Add your favorites to wishlist and they will show here.<br>
+                    <i class="bx bx-heart mt-3" style="color: #007bff;font-size: 30px;"></i>
+                </p>
+                <div class="button text-center" >
+                    <button class="btn btn-profile-primary btn-inline">Continue Shopping</button>
+                </div>
+              </div>
+              <div id="tab2" class="tab-pane">
+                  <p class="text-center">There are no favorites yet.<br>
+                    Add your favorites to wishlist and they will show here.</p><br>
+                <div class="button text-center" >
+                    <button class="btn btn-profile-primary btn-inline">Continue Shopping</button>
+                </div>
+              </div>
+              <div id="tab3" class="tab-pane">
+                  <div class="button text-center" >
+                    <i class="bx bxs-store" style="color: #0056b3;font-size: 30px;"></i>
+                </div>
+                <p class="text-center mt-3">You Don't Follow Any Store.</p>
+             
+            </div>
+        </div>
+    </div>
+</div>
+<div id="msg-btn-chat"></div>
+
+<!-- /content -->
+ <!-- footer -->
+<div id="footer"></div>
+<!-- /footer -->
+
+ <!-- THIRD PARTY JS -->
+ <script src="./web-assets/assets/js/preloader.js"></script>
+ <script src="./web-assets/assets/js/dropdowns.js"></script>
+ <script src="./web-assets/assets/js/language.js"></script>
+
+<!-- scripts -->
+<script>
+  // Load the header dynamically
+   document.getElementById("header").innerHTML = fetch('./web-header.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("header").innerHTML = data;
+  });
+  document.getElementById("msg-btn-chat").innerHTML = fetch('./web-msg-btn.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("msg-btn-chat").innerHTML = data;
+  });
+  document.getElementById("footer").innerHTML = fetch('./web-footer.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("footer").innerHTML = data;
+  });
+  document.getElementById("preloader").innerHTML = fetch('./web-preloader.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("preloader").innerHTML = data;
+  });
+</script>
+<!-- tabs -->
+<script>
+    function openTab(event, tabId) {
+      // Remove active class from all tabs
+      var tabItems = document.getElementsByClassName('tab-item');
+      for (var i = 0; i < tabItems.length; i++) {
+        tabItems[i].classList.remove('active');
+      }
+  
+      // Remove active class from all tab content
+      var tabPanes = document.getElementsByClassName('tab-pane');
+      for (var i = 0; i < tabPanes.length; i++) {
+        tabPanes[i].classList.remove('active');
+      }
+  
+      // Add active class to the clicked tab
+      event.currentTarget.classList.add('active');
+  
+      // Show the content for the active tab
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

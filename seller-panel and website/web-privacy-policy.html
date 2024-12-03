@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewp2ort" content="width=device-width, initial-scale=1.0">
+  <title>Creed Cart | Privacy Policy</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./web-assets/assets/css/kit.css">
+  <link rel="stylesheet" href="./web-assets/assets/css/style.css">
+</head>
+<body>
+  <!-- header -->
+ <div id="header"></div>
+ <!-- /header -->
+ <!-- preloader -->
+ <div id="preloader"></div>
+<!-- /preloader -->
+  <div class="content-area">
+    <div class="breadcrumbs-container">
+        <h4>Privacy Policy</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="" class="breadcrumb-link">Home</a></li>
+            <li class="breadcrumb-item active">Privacy Policy</li>
+          </ol>
+    </div>
+    <main class="container terms-condition content">
+        <h2 class="heading dotted-square">Introduction</h2>
+        <p class="description">
+          At Creed Cart, we are committed to protecting your privacy. This Privacy Policy
+explains how we collect, use, and protect your personal information when you visit
+our website or make a purchase from our store.
+        </p>
+        <h2 class="heading dotted-square">What Information We Collect</h2>
+        <p class="description">
+          <b>Personal Information:</b> When you create an account, place an order, or sign up for our
+newsletter, we may collect personal details such as your name, email address, phone
+number, billing and shipping addresses, and payment information.
+</p>
+<p class="description">
+          <b>Non-Personal Information:</b>We may collect non-identifiable data such as IP address,
+          device type, browser type, and information about your interaction with the website
+          (via cookies or tracking technologies).
+        </p>
+        <h2 class="heading dotted-square">How We Use Your Information</h2>
+        <p class="description">
+          <b>Order Fulfilment:</b> To process and ship your orders and send you order updates.
+        </p>
+        <p class="description">
+          <b>Communication:</b> To provide customer service, respond to your inquiries, and send
+order-related notifications.
+        </p>
+        <p class="description">
+          <b>Marketing:</b> With your consent, we may send you promotional emails, discounts, and
+updates about our products and services.
+        </p>
+        <p class="description">
+          <b>Improvement:</b> To enhance our website, products, and customer service.
+        </p>
+
+
+        <h2 class="heading dotted-square">Data Protection</h2>
+        <p class="description">
+          We implement security measures, including encryption and secure payment systems,
+to protect your personal data during transactions
+        </p>
+    
+        <h2 class="heading dotted-square">Third-Party Sharing</h2>
+        <p class="description">
+          We may share your data with third-party service providers for purposes like payment
+          processing, shipping, and marketing. These partners are required to keep your
+          information secure.
+        </p>
+        <h2 class="heading dotted-square">Your Rights</h2>
+        <p class="description">
+          You can access, update, or delete your personal information at any time by contacting
+          our support team.
+        </p>
+        <p class="description">
+          You may opt-out of marketing emails by clicking the unsubscribe link in any email we
+          send.
+        </p>
+        <h2 class="heading dotted-square">Cookies</h2>
+        <p class="description">
+          Our website uses cookies to enhance your experience, track usage, and personalise
+content. You can manage cookies in your browser settings
+        </p>
+        <br>
+        <br>
+        <br>
+        <h6 class="text-center">Note: Policy Changes</h6>
+        <p class="desc text-center">This Privacy Policy may be updated from time to time. Any changes will be posted on
+          this page with the updated "Effective Date."
+        </p>
+      </main>
+      <!-- CONTENT -->
+</div>
+<div id="msg-btn-chat"></div>
+<!-- /content -->
+<!-- footer -->
+<div id="footer"></div>
+<!-- /footer -->
+
+<!-- THIRD PARTY JS -->
+<!-- scripts -->
+<script src="./web-assets/assets/js/dropdowns.js"></script>
+<script src="./web-assets/assets/js/preloader.js"></script>
+<script src="./web-assets/assets/js/language .js"></script>
+<script>
+    document.getElementById("msg-btn-chat").innerHTML = fetch('./web-msg-btn.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("msg-btn-chat").innerHTML = data;
+  });
+  // Load the header dynamically
+   document.getElementById("header").innerHTML = fetch('./web-header.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("header").innerHTML = data;
+  });
+
+
+  document.getElementById("footer").innerHTML = fetch('./web-footer.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("footer").innerHTML = data;
+  });
+  document.getElementById("preloader").innerHTML = fetch('./web-preloader.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("preloader").innerHTML = data;
+  });
+</script>
+</body>
+
+</html>

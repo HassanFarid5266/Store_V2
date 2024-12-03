@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewp2ort" content="width=device-width, initial-scale=1.0">
+  <title>Sliding Forms: Login, Signup, Registration, and Forgot Password</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./web-assets/assets/css/kit.css">
+  <link rel="stylesheet" href="./web-assets/assets/css/style.css">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <!-- header -->
+ <div id="header"></div>
+ <!-- /header -->
+ <!-- preloader -->
+ <div id="preloader"></div>
+<!-- /preloader -->
+  <div class="content-area">
+    <div class="breadcrumbs-container">
+        <h4>Terms & Condition</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="" class="breadcrumb-link">Home</a></li>
+            <li class="breadcrumb-item active">Terms and Condition</li>
+          </ol>
+    </div>
+    <main class="container terms-condition content">
+        <h2 class="heading dotted-square">Introduction</h2>
+        <p class="description">
+          These Terms and Conditions govern your use of Creed Cart. By
+          accessing or using our website, you agree to comply with and be bound by these
+          terms.          
+        </p>
+        <h2 class="heading dotted-square">Account Creation</h2>
+        <p class="description">
+          To purchase from our website, you may need to create an account.
+          You are responsible for keeping your account information secure and ensuring that it
+          is accurate.
+        </p>
+        <h2 class="heading dotted-square">Product Information</h2>
+        <p class="description">
+          We make every effort to ensure that product descriptions,
+images, and pricing are accurate. However, we cannot guarantee that all content is
+free from errors, and prices may change without prior notice.
+        </p>
+        
+        <h2 class="heading dotted-square">Order Process</h2>
+        <p class="description">When you place an order on Creed Cart, you are making an offer to
+purchase that is subject to acceptance. A contract will be formed only when we ship
+your order
+        </p>
+        
+        <h2 class="heading dotted-square">Payment</h2>
+        <p class="description">
+          We accept various payment methods, including credit/debit cards,
+JazzCash, and easypaisa. All payments are processed securely.
+        </p>
+        <h2 class="heading dotted-square">Intellectual Property</h2>
+        <p class="description">
+          All content on Creed Cart, including product images, logos, text,
+          and trademarks, is owned by us or our licensors. You may not use any of this content
+          without prior written consent.
+        </p>
+        <h2 class="heading dotted-square">Limitation of Liability</h2>
+        <p class="description">
+          Creed Cart is not responsible for any direct, indirect, incidental,
+          or consequential damages arising from the use of our website or products.
+        </p>
+        <h2 class="heading dotted-square">Governing Law</h2>
+        <p class="description">These terms are governed by the laws of Pakistan. Any disputes will
+be resolved in the courts of <b>“The Electronic Transactions Ordinance (ETO) of 2002”</b>.
+        </p>
+
+    </main>
+</div>
+<div id="msg-btn-chat"></div>
+<!-- /content -->
+<!-- footer -->
+<div id="footer"></div>
+<!-- /footer -->
+
+<!-- THIRD PARTY JS -->
+<script src="./web-assets/assets/js/script.js"></script>
+<script src="./web-assets/assets/js/preloader.js"></script>
+<script src="./web-assets/assets/js/language.js"></script>
+<script src="./web-assets/assets/js/dropdowns.js"></script>
+
+<!-- scripts -->
+<script>
+  // Load the header dynamically
+   document.getElementById("header").innerHTML = fetch('./web-header.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("header").innerHTML = data;
+  });
+
+  document.getElementById("msg-btn-chat").innerHTML = fetch('./web-msg-btn.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("msg-btn-chat").innerHTML = data;
+  });
+  document.getElementById("footer").innerHTML = fetch('./web-footer.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("footer").innerHTML = data;
+  });
+  document.getElementById("preloader").innerHTML = fetch('./web-preloader.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("preloader").innerHTML = data;
+  });
+</script>
+</body>
+
+</html>

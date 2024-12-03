@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewp2ort" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Forms: Login, Signup, Registration, and Forgot Password</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./web-assets/assets/css/kit.css">
+    <link rel="stylesheet" href="./web-assets/assets/css/style.css">
+<style>
+/* tabs */
+
+.drop-profile {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.drop-profile-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+  border-radius: 5px;
+  padding: 10px 0px;
+  top: 60px; /* Adjusted to position below the avatar image */
+  /* right: 0; */
+}
+
+.drop-profile-content a {
+  color: black;
+  padding: 12px 20px;
+  transition: all 0.2s ease-in-out;
+  font-size: 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.drop-profile-content a:hover {
+  background-color: #10182f;
+  color: white;
+}
+
+.showed {
+  display: block !important;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header Section */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.right-section {
+  display: flex;
+  gap: 15px;
+}
+
+.filter-dropdown, .search-bar input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-bar input {
+  border: none;
+  padding: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-icon {
+  margin-right: 10px;
+}
+
+/* Table Section */
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.order-table th {
+  background-color: #f0f0f0;
+  text-align: left;
+  padding: 10px;
+}
+
+.order-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-image {
+  width: 50px;
+  height: 50px;
+}
+
+/* Footer Section */
+.footer-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.results-dropdown select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .right-section {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+  
+  .order-table th, .order-table td {
+    font-size: 12px;
+  }
+
+}
+
+
+</style>
+</head>
+<body>
+  <!-- header -->
+ <div id="header"></div>
+ <!-- /header -->
+ <!-- preloader -->
+ <div id="preloader"></div>
+ <!-- /preloader -->
+    <!-- content -->
+<div class="content-area">
+    <div class="breadcrumbs-container">
+        <h4>Manage Orders</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="" class="breadcrumb-link">Home</a></li>
+            <li class="breadcrumb-item active">My Orders</li>
+          </ol>
+    </div>
+    <div class="container my-orders">
+        <div class="tabs">
+            <ul class="tab-list" style="width: 100%;padding:0px 15px;">
+              <li class="tab-item active" onclick="openTab(event, 'tab1')">All</li>
+              <li class="tab-item" onclick="openTab(event, 'tab2')">To Pay</li>
+              <li class="tab-item" onclick="openTab(event, 'tab3')">To Ship</li>
+              <li class="tab-item" onclick="openTab(event, 'tab4')">To Recieve</li>
+              <li class="tab-item" onclick="openTab(event, 'tab5')">To Review</li>
+              <li class="tab-item" onclick="openTab(event, 'tab6')">My Returns</li>
+              <li class="tab-item" onclick="openTab(event, 'tab7')">My Cancellation</li>
+            </ul>
+          
+            <div class="tab-content">
+              <div id="tab1" class="tab-pane active">
+                <div class="container">
+                  <!-- Header Section -->
+                  <div class="header-section">
+                    <h2 class="heading"></h2>
+                    <div class="right-section">
+                      <select class="filter-dropdown">
+                        <option value="all">All Orders</option>
+                        <option value="pending">Pending</option>
+                        <option value="delivered">Delivered</option>
+                      </select>
+                      <div class="search-bar">
+                        <input type="text" placeholder="Search orders" />
+                        <i class="bx bx-search search-icon"></i>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <!-- Table Section -->
+                  <table class="order-table">
+                    <thead>
+                      <tr>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;width: 30px;height: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>Rs 10</td>
+                        <td>2</td>
+                        <td><div class="badge badge-success badge-pill">Completed</div></td>
+                      </tr>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;width: 30px;height: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>Rs 10</td>
+                        <td>2</td>
+                        <td><div class="badge badge-success badge-pill">Completed</div></td>
+                      </tr>
+                      <!-- Add more rows as needed -->
+                    </tbody>
+                  </table>
+                
+                  <!-- Footer Section -->
+                  <div class="footer-section">
+                    <div class="results-dropdown">
+                      <select>
+                        <option value="10">Show 10 results</option>
+                        <option value="20">Show 20 results</option>
+                        <option value="50">Show 50 results</option>
+                      </select>
+                    </div>
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link " href="#">Next</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div id="tab2" class="tab-pane">
+                <div class="container">
+                  <!-- Header Section -->
+                  <div class="header-section">
+                    <h2 class="heading"></h2>
+                    <div class="right-section">
+                      <select class="filter-dropdown">
+                        <option value="all">All Orders</option>
+                        <option value="pending">Pending</option>
+                        <option value="delivered">Delivered</option>
+                      </select>
+                      <div class="search-bar">
+                        <input type="text" placeholder="Search orders" />
+                        <i class="bx bx-search search-icon"></i>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <!-- Table Section -->
+                  <table class="order-table">
+                    <thead>
+                      <tr>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;width: 30px;height: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>Rs 10</td>
+                        <td>2</td>
+                        <td><div class="badge badge-warning badge-pill">Pending</div></td>
+                      </tr>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;width: 30px;height: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>Rs 10</td>
+                        <td>2</td>
+                        <td><div class="badge badge-warning badge-pill">Pending</div></td>
+                      </tr>
+                      <!-- Add more rows as needed -->
+                    </tbody>
+                  </table>
+                
+                  <!-- Footer Section -->
+                  <div class="footer-section">
+                    <div class="results-dropdown">
+                      <select>
+                        <option value="10">Show 10 results</option>
+                        <option value="20">Show 20 results</option>
+                        <option value="50">Show 50 results</option>
+                      </select>
+                    </div>
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link " href="#">Next</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="button text-center" >
+                    <button class="btn btn-profile-primary btn-inline">Continue Shopping</button>
+                </div>
+              </div>
+              <div id="tab3" class="tab-pane">
+                 <div class="container">
+                  <!-- Header Section -->
+                  <div class="header-section">
+                    <h2 class="heading"></h2>
+                    <div class="right-section">
+                      <select class="filter-dropdown">
+                        <option value="all">All Orders</option>
+                        <option value="pending">Pending</option>
+                        <option value="delivered">Delivered</option>
+                      </select>
+                      <div class="search-bar">
+                        <input type="text" placeholder="Search orders" />
+                        <i class="bx bx-search search-icon"></i>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <!-- Table Section -->
+                  <table class="order-table">
+                    <thead>
+                      <tr>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;height: 30px; width: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>Rs 10</td>
+                        <td>2</td>
+                        <td><div class="badge badge-success badge-pill">Ready</div></td>
+                      </tr>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;height: 30px; width: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>Rs 10</td>
+                        <td>2</td>
+                        <td><div class="badge badge-success badge-pill">Ready</div></td>
+                      </tr>
+                      <!-- Add more rows as needed -->
+                    </tbody>
+                  </table>
+                
+                  <!-- Footer Section -->
+                  <div class="footer-section">
+                    <div class="results-dropdown">
+                      <select>
+                        <option value="10">Show 10 results</option>
+                        <option value="20">Show 20 results</option>
+                        <option value="50">Show 50 results</option>
+                      </select>
+                    </div>
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link " href="#">Next</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="button text-center" >
+                    <button class="btn btn-profile-primary btn-inline">Continue Shopping</button>
+                </div>
+            </div>
+              <div id="tab4" class="tab-pane">
+                 <div class="container">
+                  <!-- Header Section -->
+                  <div class="header-section">
+                    <h2 class="heading"></h2>
+                    <div class="right-section">
+                      <select class="filter-dropdown">
+                        <option value="all">All Orders</option>
+                        <option value="pending">Pending</option>
+                        <option value="delivered">Delivered</option>
+                      </select>
+                      <div class="search-bar">
+                        <input type="text" placeholder="Search orders" />
+                        <i class="bx bx-search search-icon"></i>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <!-- Table Section -->
+                  <table class="order-table">
+                    <thead>
+                      <tr>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;width: 30px;height: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>Rs 10</td>
+                        <td>2</td>
+                        <td><div class="badge badge-info badge-pill">Shipped</div></td>
+                      </tr>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;width: 30px;height: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>Rs 10</td>
+                        <td>2</td>
+                        <td><div class="badge badge-info badge-pill">Shipped</div></td>
+                      </tr>
+                      <!-- Add more rows as needed -->
+                    </tbody>
+                  </table>
+                
+                  <!-- Footer Section -->
+                  <div class="footer-section">
+                    <div class="results-dropdown">
+                      <select>
+                        <option value="10">Show 10 results</option>
+                        <option value="20">Show 20 results</option>
+                        <option value="50">Show 50 results</option>
+                      </select>
+                    </div>
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link " href="#">Next</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="button text-center" >
+                    <button class="btn btn-profile-primary btn-inline">Continue Shopping</button>
+                </div>
+              </div>
+              <div id="tab5" class="tab-pane">
+                 <div class="container">
+                  <!-- Header Section -->
+                  <div class="header-section">
+                    <h2 class="heading"></h2>
+                    <div class="right-section">
+                      <select class="filter-dropdown">
+                        <option value="all">All Orders</option>
+                        <option value="pending">Pending</option>
+                        <option value="delivered">Delivered</option>
+                      </select>
+                      <div class="search-bar">
+                        <input type="text" placeholder="Search orders" />
+                        <i class="bx bx-search search-icon"></i>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <!-- Table Section -->
+                  <table class="order-table">
+                    <thead>
+                      <tr>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;width: 30px;height: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>Rs 10</td>
+                        <td>2</td>
+                        <td style="display: flex;gap: 10px;align-items: center;"><div class="badge badge-warning badge-pill">Pending</div>
+                        <a href=""><button class="btn btn-info btn-sm">Post Review </button></a>
+                      </td>
+                      </tr>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;width: 30px;height: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>Rs 10</td>
+                        <td>2</td>
+                        <td style="display: flex;gap: 10px;align-items: center;"><div class="badge badge-warning badge-pill">Pending</div>
+                        <a href=""><button class="btn btn-info btn-sm">Post Review </button></a>
+                      </td>
+                      </tr>
+                
+                      <!-- Add more rows as needed -->
+                    </tbody>
+                  </table>
+                
+                  <!-- Footer Section -->
+                  <div class="footer-section">
+                    <div class="results-dropdown">
+                      <select>
+                        <option value="10">Show 10 results</option>
+                        <option value="20">Show 20 results</option>
+                        <option value="50">Show 50 results</option>
+                      </select>
+                    </div>
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link " href="#">Next</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="button text-center" >
+                    <button class="btn btn-profile-primary btn-inline">Continue Shopping</button>
+                </div>
+              </div>
+              <div id="tab6" class="tab-pane">
+                <div style="display: flex;justify-content: end;">
+                  <button class="btn btn-profile-primary btn-inline">Add New Return</button>
+                </div>
+                <div class="row returns-container">
+                  <div class="col-4 return-cards">
+                    <div class="card card-returns d-flex" style="flex-direction: row;">
+                      <div class="card-head">
+                        <img src="./web-assets/assets/images/t-shirt_product.jpg" width="100px" height="100px" style="border-radius: 10px;" alt="" class="img">
+                      </div>
+                      <div class="card-body">
+                        <div class="card-subtitle">Name Goes Here !</div>
+                        <div class="badge badge-pill badge-success mb-2">Approved</div>
+                        <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis iste magnam accusamus consequuntur nostrum itaque! Similique nihil vero, quasi ad fuga, et ducimus ratione ullam quibusdam reprehenderit assumenda reiciendis. Alias.</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4 return-cards">
+                    <div class="card card-returns d-flex" style="flex-direction: row;">
+                      <div class="card-head">
+                        <img src="./web-assets/assets/images/t-shirt_product.jpg" width="100px" height="100px" style="border-radius: 10px;" alt="" class="img">
+                      </div>
+                      <div class="card-body">
+                        <div class="card-subtitle">Name Goes Here !</div>
+                        <div class="badge badge-pill badge-warning mb-2">Pending</div>
+                        <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis iste magnam accusamus consequuntur nostrum itaque! Similique nihil vero, quasi ad fuga, et ducimus ratione ullam quibusdam reprehenderit assumenda reiciendis. Alias.</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4 return-cards">
+                    <div class="card card-returns d-flex" style="flex-direction: row;">
+                      <div class="card-head">
+                        <img src="./web-assets/assets/images/t-shirt_product.jpg" width="100px" height="100px" style="border-radius: 10px;" alt="" class="img">
+                      </div>
+                      <div class="card-body">
+                        <div class="card-subtitle">Name Goes Here !</div>
+                        <div class="badge badge-pill badge-danger mb-2">Declined</div>
+                        <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis iste magnam accusamus consequuntur nostrum itaque! Similique nihil vero, quasi ad fuga, et ducimus ratione ullam quibusdam reprehenderit assumenda reiciendis. Alias.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="tab7" class="tab-pane">
+                 <div class="container">
+                  <!-- Header Section -->
+                  <div class="header-section">
+                    <h2 class="heading"></h2>
+                    <div class="right-section">
+                      <select class="filter-dropdown">
+                        <option value="all">All Orders</option>
+                        <option value="pending">Pending</option>
+                        <option value="delivered">Delivered</option>
+                      </select>
+                      <div class="search-bar">
+                        <input type="text" placeholder="Search orders" />
+                        <i class="bx bx-search search-icon"></i>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <!-- Table Section -->
+                  <table class="order-table">
+                    <thead>
+                      <tr>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;width: 30px;height: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>Rs 10</td>
+                        <td>2</td>
+                        <td><div class="badge badge-danger badge-pill">Cancelled</div></td>
+                      </tr>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;width: 30px;height: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>Rs 10</td>
+                        <td>2</td>
+                        <td><div class="badge badge-danger badge-pill">Cancelled</div></td>
+                      </tr>
+                      <!-- Add more rows as needed -->
+                    </tbody>
+                  </table>
+                
+                  <!-- Footer Section -->
+                  <div class="footer-section">
+                    <div class="results-dropdown">
+                      <select>
+                        <option value="10">Show 10 results</option>
+                        <option value="20">Show 20 results</option>
+                        <option value="50">Show 50 results</option>
+                      </select>
+                    </div>
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link " href="#">Next</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="button text-center" >
+                    <button class="btn btn-profile-primary btn-inline">Continue Shopping</button>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="msg-btn-chat"></div>
+<!-- /content -->
+ <!-- footer -->
+<div id="footer"></div>
+<!-- /footer -->
+
+ <!-- THIRD PARTY JS -->
+
+ <script src="./web-assets/assets/js/dropdowns.js"></script>
+ <script src="./web-assets/assets/js/language.js"></script>
+ <script src="./web-assets/assets/js/preloader.js"></script>
+
+<!-- scripts -->
+<script>
+  // Load the header dynamically
+   document.getElementById("header").innerHTML = fetch('./web-header.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("header").innerHTML = data;
+  });
+
+  document.getElementById("msg-btn-chat").innerHTML = fetch('./web-msg-btn.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("msg-btn-chat").innerHTML = data;
+  });
+  document.getElementById("footer").innerHTML = fetch('./web-footer.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("footer").innerHTML = data;
+  });
+  document.getElementById("preloader").innerHTML = fetch('./web-preloader.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("preloader").innerHTML = data;
+  });
+</script>
+<!-- model -->
+<script>
+  // Function to close the modal
+  function closeModal() {
+      document.getElementById("page-modal").style.display = "none";
+  }
+  
+  // Auto-open modal when page loads
+  window.onload = function() {
+      document.getElementById("page-modal").style.display = "block"; // Show modal when page loads
+  };
+  
+</script>
+      <!-- tabs -->
+<script>
+    function openTab(event, tabId) {
+      // Remove active class from all tabs
+      var tabItems = document.getElementsByClassName('tab-item');
+      for (var i = 0; i < tabItems.length; i++) {
+        tabItems[i].classList.remove('active');
+      }
+  
+      // Remove active class from all tab content
+      var tabPanes = document.getElementsByClassName('tab-pane');
+      for (var i = 0; i < tabPanes.length; i++) {
+        tabPanes[i].classList.remove('active');
+      }
+  
+      // Add active class to the clicked tab
+      event.currentTarget.classList.add('active');
+  
+      // Show the content for the active tab
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
+   
+  
+</body>
+</html> 

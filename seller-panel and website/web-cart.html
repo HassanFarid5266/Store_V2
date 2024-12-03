@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewp2ort" content="width=device-width, initial-scale=1.0">
+  <title>Sliding Forms: Login, Signup, Registration, and Forgot Password</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./web-assets/assets/css/kit.css">
+  <link rel="stylesheet" href="./web-assets/assets/css/style.css">
+</head>
+
+<body>
+  <!-- header -->
+  <div id="header"></div>
+  <!-- /header -->
+  <!-- preloader -->
+  <div id="preloader"></div>
+  <!-- /preloader -->
+  <!-- content -->
+
+  <div class="content-area">
+    <div class="breadcrumbs-container">
+      <h4>Shopping Cart</h4>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="" class="breadcrumb-link">Home</a></li>
+        <li class="breadcrumb-item active">Shopping Cart</li>
+      </ol>
+    </div>
+    <div class="container cart-container">
+      <div class="cart-items">
+        <label class="check check-dark"> <input type="checkbox" /> Select all </label>
+        <hr>
+        <div class="card cart-item-card">
+          <div class="card-head">
+            <label class="check check-dark"> <input type="checkbox" /></label>
+            <img src="./web-assets/assets/images/t-shirt_product.jpg" alt="">
+          </div>
+          <div class="card-body">
+            <div class="info-price">
+              <div class="info">
+                <div class="card-subtitle text-ellipsis ">Stylish Comfort: Oversized Fit Printed T-Shirt for Men</div>
+                <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit amet consectetur adipisicing
+                  elit. Amet, quis temporibus quos, mollitia sint odit pariatur iste voluptates itaque asperiores,
+                  tenetur vitae assumenda aspernatur eius omnis et culpa recusandae. Nemo.
+                  Dignissimos voluptatibus molestias modi eligendi temporibus! Unde officia sit sed, autem modi in
+                  aperiam laboriosam accusamus quos neque. Illo adipisci placeat necessitatibus pariatur sint
+                  reiciendis. Possimus vel dolor eligendi quas.</div>
+              </div>
+              <div class="price">
+                <div class="discounted-price"><del>Rs55.00</del></div>
+                <div class="original-price">Rs32.00</div>
+              </div>
+            </div>
+            <div class="desc-buttons">
+              <div class="card-desc">Brand : Name | Store : Other</div>
+              <div class="buttons">
+                <button class="btn btn-dark btn-icon btn-circle bx bx-heart"></button>
+                <button class="btn btn-danger btn-icon btn-circle bx bx-trash"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="card cart-item-card">
+          <div class="card-head">
+            <label class="check check-dark"> <input type="checkbox" /></label>
+            <img src="./web-assets/assets/images/t-shirt_product.jpg" alt="">
+          </div>
+          <div class="card-body">
+            <div class="info-price">
+              <div class="info">
+                <div class="card-subtitle text-ellipsis ">Stylish Comfort: Oversized Fit Printed T-Shirt for Men</div>
+                <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit amet consectetur adipisicing
+                  elit. Amet, quis temporibus quos, mollitia sint odit pariatur iste voluptates itaque asperiores,
+                  tenetur vitae assumenda aspernatur eius omnis et culpa recusandae. Nemo.
+                  Dignissimos voluptatibus molestias modi eligendi temporibus! Unde officia sit sed, autem modi in
+                  aperiam laboriosam accusamus quos neque. Illo adipisci placeat necessitatibus pariatur sint
+                  reiciendis. Possimus vel dolor eligendi quas.</div>
+              </div>
+              <div class="price">
+                <div class="discounted-price"><del>Rs55.00</del></div>
+                <div class="original-price">Rs32.00</div>
+              </div>
+            </div>
+            <div class="desc-buttons">
+              <div class="card-desc">Brand : Name | Store : Other</div>
+              <div class="buttons">
+                <button class="btn btn-dark btn-icon btn-circle bx bx-heart"></button>
+                <button class="btn btn-danger btn-icon btn-circle bx bx-trash"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="card cart-item-card">
+          <div class="card-head">
+            <label class="check check-dark"> <input type="checkbox" /></label>
+            <img src="./web-assets/assets/images/t-shirt_product.jpg" alt="">
+          </div>
+          <div class="card-body">
+            <div class="info-price">
+              <div class="info">
+                <div class="card-subtitle text-ellipsis ">Stylish Comfort: Oversized Fit Printed T-Shirt for Men</div>
+                <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit amet consectetur adipisicing
+                  elit. Amet, quis temporibus quos, mollitia sint odit pariatur iste voluptates itaque asperiores,
+                  tenetur vitae assumenda aspernatur eius omnis et culpa recusandae. Nemo.
+                  Dignissimos voluptatibus molestias modi eligendi temporibus! Unde officia sit sed, autem modi in
+                  aperiam laboriosam accusamus quos neque. Illo adipisci placeat necessitatibus pariatur sint
+                  reiciendis. Possimus vel dolor eligendi quas.</div>
+              </div>
+              <div class="price">
+                <div class="discounted-price"><del>Rs55.00</del></div>
+                <div class="original-price">Rs32.00</div>
+              </div>
+            </div>
+            <div class="desc-buttons">
+              <div class="card-desc">Brand : Name | Store : Other</div>
+              <div class="buttons">
+                <button class="btn btn-dark btn-icon btn-circle bx bx-heart"></button>
+                <button class="btn btn-danger btn-icon btn-circle bx bx-trash"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card card-cart">
+        <div class="card-head">
+          <div class="card-subtitle">Calculated Shipping</div>
+          <div class="inputs">
+            <div class="field">
+              <select name="" id="" class="field-select" style="font-size: 14px;
+    font-family: sans-serif;">
+                <option value="">Country</option>
+                <option value="Option">Option</option>
+                <option value="Option">Option</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <select style="font-size: 14px;
+    font-family: sans-serif;" name="" id="" class="field-select">
+                  <option value="">State / City</option>
+                  <option value="Option">Option</option>
+                  <option value="Option">Option</option>
+                </select>
+              </div>
+              <div class="field">
+                <input style="font-size: 14px;
+    font-family: sans-serif;" type="text" class="field-text" placeholder="ZIP Code" />
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-dark btn-block btn-pill">Update</button>
+          <hr>
+          <div class="card-subtitle">Coupon Code</div>
+          <div class="card-desc text-ellipsis text-ellipsis-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Autem aperiam aliquid nemo alias consectetur voluptatum provident fugiat sint laboriosam non, beatae magni
+            qui fugit minima quae dolorum eius expedita deserunt?</div>
+          <div class="field">
+            <input style="font-size: 14px;
+    font-family: sans-serif;" type="text" class="field-text" placeholder="Coupon Code" />
+          </div>
+          <button class="btn btn-dark btn-pill btn-block">Apply</button>
+        </div>
+        <div class="card-body">
+          <div class="card grand-total-card">
+            <div class="card-head">
+              <div class="card-subtitle">Cart Total</div>
+            </div>
+            <div class="card-body">
+              <div class="item-price">
+                <div class="item">Cart Subtotal</div>
+                <div class="price">Rs70.90</div>
+              </div>
+              <div class="item-price">
+                <div class="item">Design by Flutertop</div>
+                <div class="price">Free</div>
+              </div>
+              <div class="item-price">
+                <div class="item">Discount</div>
+                <div class="price">-Rs4.00</div>
+              </div>
+              <div class="item-price">
+                <div class="item">Coupon Discount</div>
+                <div class="price">-3%</div>
+              </div>
+            </div>
+            <div class="card-foot">
+              <div class="card-subtitle">Cart Total <strong>Rs67.50</strong></div>
+              <a href="./web-checkout.html">
+                <button class="btn btn-light btn-pill btn-block">
+                  Proceed to Checkout
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container flash-sale">
+      <div class="headings d-flex">
+        <h3>You might also like</h3>
+      </div>
+      <hr>
+      <div class="swiper mySwiper likely-products">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- Navigation Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </div>
+  <div id="msg-btn-chat"></div>
+  <!-- /content -->
+  <!-- footer -->
+  <div id="footer"></div>
+  <!-- /footer -->
+
+  <!-- THIRD PARTY JS -->
+  <script src="./web-assets/assets/js/dropdowns.js"></script>
+  <script src="./web-assets/assets/js/preloader.js"></script>
+  <script src="./web-assets/assets/js/swiper.js"></script>
+  <script src="./web-assets/assets/js/load-more.js"></script>
+  <script src="./web-assets/assets/js/language.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+  <!-- scripts -->
+  <script>
+    document.getElementById("msg-btn-chat").innerHTML = fetch('./web-msg-btn.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("msg-btn-chat").innerHTML = data;
+      });
+    // Load the header dynamically
+    document.getElementById("header").innerHTML = fetch('./web-header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+
+    document.getElementById("footer").innerHTML = fetch('./web-footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+    document.getElementById("preloader").innerHTML = fetch('./web-preloader.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("preloader").innerHTML = data;
+      });
+  </script>
+</body>
+
+</html>

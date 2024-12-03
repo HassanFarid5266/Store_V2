@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewp2ort" content="width=device-width, initial-scale=1.0">
+  <title>Creed Cart | Home</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+  <link rel="stylesheet" href="./web-assets/assets/css/kit.css">
+  <link rel="stylesheet" href="./web-assets/assets/css/style.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" /> -->
+
+</head>
+<style>
+  .VIpgJd-ZVi9od-l4eHX-hSRGPd {
+    display: none;
+  }
+
+  .VIpgJd-ZVi9od-ORHb-OEVmcd {
+    display: none;
+  }
+</style>
+
+<body style="display: contents;">
+  <!-- modal for the App -->
+  <div id="page-modal" class="modal-box">
+    <div class="modal-content">
+      <!-- <span class="close-button" onclick="closeModal()">&times;</span> -->
+      <!-- <h2>Don't Miss Your Chance</h2> -->
+      <!-- <p>This is a message for your visitors.</p> -->
+      <img src="./web-assets/assets/images/sale-modal.png" width="300px" height="220px" alt=""><br>
+      <button id="close-modal-button">Close</button>
+    </div>
+  </div>
+  <!-- modal for the App -->
+  <!-- header -->
+  <header id="header">
+    <nav class="navbar">
+      <div class="first-half">
+        <div class="logo">
+          <a href="./web-index.html">
+            <img src="./web-assets/assets/images/company-logo-removebg-preview.png" class="logo-image" alt="">
+          </a>
+        </div>
+        <div class="links">
+          <ul class="d-flex first-ul">
+            <li class="dropdown">
+              <a href="#">Categories <i class='bx bx-chevron-down'></i></a>
+              <ul class="dropdown-menu">
+                <li class="sub-dropdown">
+                  <a href="#" class="subdropdowns">Electronics<i class="bx bx-chevron-left"></i></a>
+                  <ul class="sub-menu">
+                    <li><a href="#">Mobile Phones</a></li>
+                    <li><a href="#">Laptops & Computers</a></li>
+                  </ul>
+                </li>
+                <li class="sub-dropdown">
+                  <a href="#" class="subdropdowns">Fashion<i class="bx bx-chevron-left"></i></a>
+                  <ul class="sub-menu">
+                    <li><a href="#">Men's Clothing</a></li>
+                    <li><a href="#">Wpmen's Clothing</a></li>
+                  </ul>
+                </li>
+                <li class="sub-dropdown">
+                  <a href="#">Home & Kitchen</a>
+                </li>
+                <li class="sub-dropdown">
+                  <a href="#">Sports & Outdoors</a>
+                </li>
+                <li class="sub-dropdown">
+                  <a href="#">Beauty & Health</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="./auth-login.html">Become a Seller</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="second-half">
+        <ul class="d-flex">
+          <li class="heder-search-area">
+            <div class="search-box">
+              <input type="text" class="search-box-input" placeholder="What are you looking for ?">
+              <button class="search-box-btn">
+                <i class="search-box-icon material-icons bx bx-search"></i>
+              </button>
+            </div>
+          </li>
+          <li class="menu-btn">
+            <button data-toggle="menu">
+              <i class='bx bx-menu-alt-right fs-4'></i>
+            </button>
+          </li>
+          <li class="help-and-support">
+            <div class="tooltip-wrapper">
+              <a href="#" class="tooltip-bottom" data-tooltip="Help Center!">
+                <img src="./web-assets/assets/images/help-center.png" width="40px" height="40px" alt="">
+              </a>
+            </div>
+          </li>
+          <li>
+          </li>
+          <li><a href="./web-cart.html"><i class="bx bx-cart fs-4"></i></a></li>
+          <li class="noti-counter">
+            <span>3</span>
+          </li>
+          <li>
+            <div class="dropdown-noti">
+              <i class="bx bx-bell fs-4 dropdown-toggle" onclick="toggleDropdownnoti()"></i>
+              <div id="dropdownMenu" class="dropdown-menu">
+                <!-- Dropdown Header -->
+                <div class="dropdown-header">
+                  <h3>Notifications</h3>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tabs">
+                  <button class="tab-link-noti active" onclick="openTabnoti(event, 'new')">New (2)</button>
+                  <button class="tab-link-noti" onclick="openTabnoti(event, 'seen')">Seen (3)</button>
+                </div>
+
+                <!-- New Notifications -->
+                <div id="new" class="tab-content-noti" style="display: block;">
+                  <div class="notification">
+                    <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image"
+                      class="notification-img">
+                    <div class="notification-text">
+                      <p>You have a new message from John.</p>
+                    </div>
+                  </div>
+                  <div class="notification">
+                    <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image"
+                      class="notification-img">
+                    <div class="notification-text">
+                      <p>Meeting scheduled with the marketing team tomorrow.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Seen Notifications -->
+                <div id="seen" class="tab-content-noti">
+                  <div class="notification">
+                    <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image"
+                      class="notification-img">
+                    <div class="notification-text">
+                      <p>Project update received from the development team.</p>
+                    </div>
+                  </div>
+                  <div class="notification">
+                    <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image"
+                      class="notification-img">
+                    <div class="notification-text">
+                      <p>New design mockups have been seen and approved.</p>
+                    </div>
+                  </div>
+                  <div class="notification">
+                    <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image"
+                      class="notification-img">
+                    <div class="notification-text">
+                      <p>New design are seen and approved.</p>
+                    </div>
+                  </div>
+                </div>
+                <a href="./web-chats.html" style="text-decoration: none;">
+                  <button class="btn-noti-view">View All</button>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="noti-counter">
+            <span>5</span>
+          </li>
+          <div class="language" style="margin: 6px 19px;">
+            <div id="select-container">
+              <ul>
+                <!-- Languages -->
+                <li lang-selection="EN" tooltip="EN" flow="down" data-target="EN">
+                  <img src="./web-assets/assets/images/america.png" alt="English">
+                </li>
+                <li lang-selection="PK" tooltip="PK" flow="down" data-target="PK">
+                  <img src="./web-assets/assets/images/pakistan.png" alt="Pakistan">
+                </li>
+                <li lang-selection="ES" tooltip="ES" flow="down" data-target="ES">
+                  <img src="./web-assets/assets/images/spain.png" alt="Spanish">
+                </li>
+                <li lang-selection="PT" tooltip="PT" flow="down" data-target="PT">
+                  <img src="./web-assets/assets/images/potugal.png" alt="Portuguese">
+                </li>
+                <li lang-selection="FR" tooltip="FR" flow="up" data-target="FR">
+                  <img src="./web-assets/assets/images/france.png" alt="French">
+                </li>
+                <li lang-selection="DE" tooltip="DE" flow="up" data-target="DE">
+                  <img src="./web-assets/assets/images/germany.png" alt="German">
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+
+          <li>
+            <div class="drop-profile">
+              <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Avatar" class="profile-img" onclick="toggleDropdown()">
+              <div class="drop-profile-content">
+                <a href="./web-account-manage.html">Manage My Account</a>
+                <a href="./web-my-orders.html">My Orders</a>
+                <a href="./web-wishlist.html">My Wishlist & Followed Stores</a>
+                <a href="./web-my-reviews.html">My Reviews</a>
+                <a href="./web-login.html">Logout</a>
+              </div>
+            </div>
+          </li>
+          <li class="index-login">
+            <div><a class="click-btn btn-style700" href="./web-login.html">Login</a></div>
+          </li>
+          <li class="index-signup">
+            <div><a class="click-btn btn-style702" href="./web-login.html">Sign up</a></div>
+          </li>
+          
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- /header -->
+
+  <aside class="aside" data-content="menu">
+    <nav class="navbar-rp">
+      <div class="links">
+        <li class="rp-nav-search">
+          <div class="searchInputWrapper">
+            <input class="searchInput" type="text" placeholder='What are you looking for ?'>
+            <i class="searchInputIcon bx bx-search"></i>
+            </input>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Categories <i class="bx bx-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li class="sub-dropdown">
+              <a href="#" class="subdropdowns">Electronics<i class="bx bx-chevron-left"></i></a>
+              <ul class="sub-menu">
+                <li><a href="#">Mobile Phones</a></li>
+                <li><a href="#">Laptops &amp; Computers</a></li>
+              </ul>
+            </li>
+            <li class="sub-dropdown">
+              <a href="#" class="subdropdowns">Fashion<i class="bx bx-chevron-left"></i></a>
+              <ul class="sub-menu">
+                <li><a href="#">Men's Clothing</a></li>
+                <li><a href="#">Wpmen's Clothing</a></li>
+              </ul>
+            </li>
+            <li class="sub-dropdown">
+              <a href="#">Home &amp; Kitchen</a>
+            </li>
+            <li class="sub-dropdown">
+              <a href="#">Sports &amp; Outdoors</a>
+            </li>
+            <li class="sub-dropdown">
+              <a href="#">Beauty &amp; Health</a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="./auth-login.html">Become a Seller</a></li>
+        <li>
+          <div><a class="click-btn btn-style702" href="#">Help and Support</a></div>
+        </li>
+        <li>
+          <div><a class="click-btn btn-style700" href="./web-login.html">Login</a></div>
+        </li>
+        <li>
+          <div><a class="click-btn btn-style702" href="./web-login.html">Sign up</a></div>
+        </li>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+  <!-- Preloader -->
+  <!-- content -->
+  <div class="content-area">
+    <div class="product-banner-slider d-flex">
+      <div class="swiper-container swiper banner-vertical-slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="./web-assets/assets/images/home-banner-1.webp" alt="Image 1">
+          </div>
+          <div class="swiper-slide">
+            <img src="./web-assets/assets/images/home-banner-2.webp" alt="Image 2">
+          </div>
+          <div class="swiper-slide">
+            <img src="./web-assets/assets/images/home-banner-3.webp" alt="Image 2">
+          </div>
+          <div class="swiper-slide">
+            <img src="./web-assets/assets/images/home-banner-4.webp" alt="Image 2">
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+    <div class="container flash-sale">
+      <div class="headings d-flex">
+        <h3>Flash Sale</h3>
+        <a href="./web-products.html"><button class="btn btn-see-products">See All Products</button></a>
+      </div>
+      <hr>
+      <div class="swiper mySwiper swiper-products">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="card-product" href="./web-Product-details.html">
+              <div class="card Product-card">
+                <div class="card-head">
+                  <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+                </div>
+                <div class="card-body">
+                  <div class="brand-and-ratings">
+                    <div class="brand">H&M</div>
+                    <div class="rating-and-sold">
+                      <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                      <div class="sold">(13.8k) sold</div>
+                    </div>
+                  </div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad
+                    similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                  <div class="prices">
+                    <div class="card-subtitle original-price">Rs 295.00</div>
+                  </div>
+                  <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- Add more swiper slides as needed -->
+        </div>
+        <!-- Navigation Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+   <div class="container product-categories">
+      <div class="headings d-flex">
+        <h3>Top Categories</h3>
+        <a href="./web-products.html">See More</a>
+      </div>
+      <hr>
+      <div class="categories-cards">
+        <a href="">
+          <div class="category-card">
+            <img src="./web-assets/assets/images/t-shirts.png" alt="">
+            <h5>T-shirts</h5>
+          </div>
+        </a>
+        <a href="">
+          <div class="category-card">
+            <img src="./web-assets/assets/images/t-shirts.png" alt="">
+            <h5>Shirts</h5>
+          </div>
+        </a>
+        <a href="">
+          <div class="category-card">
+            <img src="./web-assets/assets/images/t-shirts.png" alt="">
+            <h5>Headphones</h5>
+          </div>
+        </a>
+        <a href="">
+          <div class="category-card">
+            <img src="./web-assets/assets/images/t-shirts.png" alt="">
+            <h5>Bags</h5>
+          </div>
+        </a>
+        <a href="">
+          <div class="category-card">
+            <img src="./web-assets/assets/images/t-shirts.png" alt="">
+            <h5>Mobiles</h5>
+          </div>
+        </a>
+        <a href="">
+          <div class="category-card">
+            <img src="./web-assets/assets/images/t-shirts.png" alt="">
+            <h5>Shoes</h5>
+          </div>
+        </a>
+        <a href="">
+          <div class="category-card">
+            <img src="./web-assets/assets/images/t-shirts.png" alt="">
+            <h5>Watches</h5>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="container products product-container">
+      <h3 class="headings">Just For You</h3>
+      <hr>
+      <div class="for-you-products product-cards">
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+        <a href="./web-Product-details.html">
+          <div class="card Product-card">
+            <div class="card-head">
+              <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+            </div>
+            <div class="card-body">
+              <div class="brand-and-ratings">
+                <div class="brand">H&M</div>
+                <div class="rating-and-sold">
+                  <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                  <div class="sold">(13.8k) sold</div>
+                </div>
+              </div>
+              <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus
+                veritatis distinctio nobis, rerum, aut et!</div>
+              <div class="prices">
+                <div class="card-subtitle original-price">Rs 295.00</div>
+              </div>
+              <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="loader">
+        <span class="fallback fallback-spin fallback-spin-dark fallback-spin-lg"></span>
+      </div>
+      <div class="text-center">
+        <button class="btn load-more" id="loadMoreBtn">Load More</button>
+      </div>
+    </div>
+  </div>
+  <div id="msg-btn-chat"></div>
+  <!-- /content -->
+  <!-- footer -->
+  <div id="footer"></div>   
+  <!-- /footer -->
+
+  <!-- THIRD PARTY JS -->
+  <!-- scripts -->
+  <script>
+    // Load the header dynamically
+
+    document.getElementById("msg-btn-chat").innerHTML = fetch('./web-msg-btn.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("msg-btn-chat").innerHTML = data;
+      });
+    document.getElementById("footer").innerHTML = fetch('./web-footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+    document.getElementById("preloader").innerHTML = fetch('./web-preloader.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("preloader").innerHTML = data;
+      });
+  </script>
+  <script src="./web-assets/assets/js/script.js"></script>
+  <script src="./web-assets/assets/js/swiper.js"></script>
+  <script src="./web-assets/assets/js/dropdowns.js"></script>
+  <script src="./web-assets/assets/js/preloader.js"></script>
+  <script src="./web-assets/assets/js/load-more.js"></script>
+  <script src="./web-assets/assets/js/language.js"></script>
+  <script src="./web-assets/assets/js/home-page-modal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+</body>
+
+</html>
