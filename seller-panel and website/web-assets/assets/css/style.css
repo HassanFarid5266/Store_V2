@@ -2209,7 +2209,7 @@ footer .terms-section .terms ul li a {
   .product-detail-cards .product-detail .product-img-and-info {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (1fr)[2];
+    /* -ms-grid-columns: (1fr)[2]; */
     grid-template-columns: repeat(2, 1fr); /* Default: 3 columns */
     grid-auto-rows: auto;
   }
@@ -2227,7 +2227,7 @@ footer .terms-section .terms ul li a {
 }
 @media (max-width: 768px) {
   .product-detail-cards .product-detail .product-img-and-info {
-    -ms-grid-columns: (1fr)[1];
+    /* -ms-grid-columns: (1fr)[1]; */
     grid-template-columns: repeat(1, 1fr);
   }
   .product-detail-cards .product-detail .product-img-and-info .products-image {
